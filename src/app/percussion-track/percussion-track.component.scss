@@ -1,0 +1,62 @@
+:host {
+  width: fit-content;
+  height: fit-content;
+  border: 2px solid grey;
+  background: linear-gradient(20deg,  rgb(32, 32, 32), rgb(21, 21, 21) );
+  color: rgb(255, 255, 255);
+  // text-shadow: 2px 2px 3px rgb(240, 48, 247);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.instrument-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+.instrument-title {
+  width: 4rem;
+  font-size: 0.8rem;
+  font-weight: 100;
+  font-family: Arial, Helvetica, sans-serif;
+  // border: 1px solid white;
+  text-align: end;
+  margin-right: 0.5rem;
+}
+.instrument-row-block {
+  height: 1.5rem;
+  width: 2rem;
+  border: 1px solid rgba(171, 171, 171, 0.253);
+  background-color: rgb(240, 240, 240);
+  color: black;
+  transition: 100ms;
+}
+
+.instrument-row-block:nth-child(4n + 1) {
+  border-right: 1px solid rgb(33, 33, 33);
+}
+
+.instrument-row-block:hover {
+  background-color: rgb(255, 112, 188);
+  transition: 100ms;
+}
+
+.instrument-row-block-active {
+  height: 1.5rem;
+  width: 2rem;
+  border: 1px solid rgba(171, 171, 171, 0.253);
+  background-color: rgb(255, 0, 136);
+  color: black;
+  transition: 100ms;
+}
+
+

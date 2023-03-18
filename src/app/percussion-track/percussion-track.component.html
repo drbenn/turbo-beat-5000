@@ -1,0 +1,38 @@
+
+
+<div class="instrument-row">
+  <div class="instrument-title">
+    Kick
+  </div>
+  <div *ngFor="let beat of percussion.kick; index as i" class="instrument-row-block" (click)="toggleBeat(i, 'kick')" [ngClass]="{'instrument-row-block-active': beat }">
+  </div>
+</div>
+
+
+<div class="instrument-row">
+  <div class="instrument-title">
+    HighHat
+  </div>
+  <div *ngFor="let beat of percussion.snare; index as i" class="instrument-row-block"(click)="toggleBeat(i, 'snare')" [ngClass]="{'instrument-row-block-active': beat }">
+  </div>
+</div>
+
+
+<div class="instrument-row">
+  <div class="instrument-title">
+    HighHat
+  </div>
+  <div *ngFor="let beat of percussion.highHat; index as i" class="instrument-row-block"(click)="toggleBeat(i, 'highHat')" [ngClass]="{'instrument-row-block-active': beat }">
+  </div>
+</div>
+
+
+<div class="instrument-row">
+  <div class="instrument-title">
+    SubBass
+  </div>
+  <div *ngFor="let beat of percussion.subBass; index as i" class="instrument-row-block" (click)="toggleBeat(i, 'subBass')" [ngClass]="{'instrument-row-block-active': beat }">
+  </div>
+</div>
+
+
