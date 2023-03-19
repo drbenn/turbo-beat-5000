@@ -4,11 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PercussionTrackComponent } from './percussion-track/percussion-track.component';
+import { BackdropComponent } from './backdrop/backdrop.component';
+import { SliderMeterComponent } from './slider-meter/slider-meter.component';
+import { ConsoleComponent } from './console/console.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PercussionTrackComponent
+    PercussionTrackComponent,
+    BackdropComponent,
+    SliderMeterComponent,
+    ConsoleComponent
   ],
   imports: [
     BrowserModule,

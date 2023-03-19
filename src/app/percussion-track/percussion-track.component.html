@@ -1,5 +1,6 @@
 
-
+<button (click)="startTime()">Play</button>
+<button (click)="playSound()">PlaySound</button>
 <div class="instrument-row">
   <div class="instrument-title">
     Kick
@@ -27,12 +28,5 @@
 </div>
 
 
-<div class="instrument-row">
-  <div class="instrument-title">
-    SubBass
-  </div>
-  <div *ngFor="let beat of percussion.subBass; index as i" class="instrument-row-block" (click)="toggleBeat(i, 'subBass')" [ngClass]="{'instrument-row-block-active': beat }">
-  </div>
-</div>
 
 
