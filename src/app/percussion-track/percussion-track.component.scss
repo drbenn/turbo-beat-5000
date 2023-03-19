@@ -1,9 +1,11 @@
+@import "../shared/variables.scss";
+
 :host {
   width: fit-content;
   height: fit-content;
-  border: 2px solid grey;
-  background: linear-gradient(20deg,  rgb(32, 32, 32), rgb(21, 21, 21) );
-  color: rgb(255, 255, 255);
+  border: $percussion-container-border;
+  background: $percussion-container-bg;
+  color: $percussion-container-text-color;
   // text-shadow: 2px 2px 3px rgb(240, 48, 247);
   padding: 2rem;
   display: flex;
@@ -35,26 +37,26 @@
 .instrument-row-block {
   height: 1.5rem;
   width: 2rem;
-  border: 1px solid rgba(171, 171, 171, 0.253);
-  background-color: rgb(240, 240, 240);
+  border: $instrument-block-border;
+  background-color: $instrument-block-bg;
   color: black;
   transition: 100ms;
 }
 
 .instrument-row-block:nth-child(4n + 1) {
-  border-right: 1px solid rgb(33, 33, 33);
+  border-right: $instrument-block-measure-border;
 }
 
 .instrument-row-block:hover {
-  background-color: rgb(255, 112, 188);
+  background-color: $instrument-block-hover;
   transition: 100ms;
 }
 
 .instrument-row-block-active {
   height: 1.5rem;
   width: 2rem;
-  border: 1px solid rgba(171, 171, 171, 0.253);
-  background-color: rgb(255, 0, 136);
+  border: $instrument-block-active-border;
+  background-color: $instrument-block-active-bg;
   color: black;
   transition: 100ms;
 }
