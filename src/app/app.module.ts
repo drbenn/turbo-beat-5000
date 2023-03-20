@@ -7,6 +7,8 @@ import { PercussionTrackComponent } from './percussion-track/percussion-track.co
 import { BackdropComponent } from './backdrop/backdrop.component';
 import { SliderMeterComponent } from './slider-meter/slider-meter.component';
 import { ConsoleComponent } from './console/console.component';
+import { MeterComponent } from './meter/meter.component';
+import { MeterGroupingComponent } from './meter-grouping/meter-grouping.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ConsoleComponent } from './console/console.component';
     PercussionTrackComponent,
     BackdropComponent,
     SliderMeterComponent,
-    ConsoleComponent
+    ConsoleComponent,
+    MeterComponent,
+    MeterGroupingComponent
   ],
   imports: [
     BrowserModule,

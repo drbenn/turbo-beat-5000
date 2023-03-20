@@ -1,0 +1,48 @@
+@import "../shared/variables.scss";
+
+:host {
+  border: $meter-track-border;
+  padding: 0.5rem;
+  transform: rotate(90deg);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+
+.meter-slider {
+  -webkit-appearance: none;
+  background-color: $meter-track-bg-color;
+  box-shadow: $meter-track-shadow;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .15s;
+  transition: opacity .1s;
+  height: 0.2rem;
+  width: 5rem;
+  cursor: default;
+}
+
+.meter-slider:hover {
+  opacity: 1;
+}
+
+.meter-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: default;
+}
+
+.meter-slider::-moz-range-thumb {
+  background: $meter-knob-bg;
+  border: $meter-knob-border;
+  box-shadow: $meter-knob-box-shadow;
+  border-radius: 1px;
+  height: 1rem;
+  width: 0.5rem;
+  cursor: default;
+}
