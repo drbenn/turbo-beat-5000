@@ -31,9 +31,14 @@ $instrument-block-active-bg: #ff0088;
 
 // Meter
 
-$meter-track-border: 1px solid #2b2b2b3e;
+// $meter-track-border: 1px solid #2b2b2b3e;
+$meter-track-border: 1px solid #2b2b2b00;
 $meter-track-bg-color: #262626;
 $meter-track-shadow: 0px 0px 6px #30fcffbc;
 $meter-knob-bg: #2e2e2e;
 $meter-knob-border: 1px solid #54ffe5;
 $meter-knob-box-shadow: 0px 0px 10px #2bfff4;
+
+// Meter Group
+$meter-group-border: 1px solid #0aa4a7b3;
+$meter-group-box-shadow: 0px 2px 30px #2efbfe83;

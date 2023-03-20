@@ -1,0 +1,23 @@
+@import "../shared/variables.scss";
+
+:host {
+  padding: 1rem;
+  border: $meter-group-border;
+  box-shadow: $meter-group-box-shadow;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  // height: fit-content;
+  // width: fit-content;
+  transform: rotate(90deg);
+}
+
+// .meter-group-container {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: nowrap;
+//   justify-content: center;
+//   align-items: center;
+// }
