@@ -1,0 +1,27 @@
+<!-- <p>synth-meters works!</p> -->
+
+
+<div class="meter-group-container" *ngIf="meterSettings.envelopeMeterGroup.ATK !== undefined">
+  <div class="meter-container"
+    *ngFor="let item of meterSettings.envelopeMeterGroup | keyvalue">
+
+      <input type="range" min="0" max="100" value="item.value" class="meter-slider"
+        (input)="meterChange($event, item.key)">
+        <div class="meter-title">
+          {{ item.key }}
+        </div>
+  </div>
+</div>
+
+<div class="meter-group-container" *ngIf="meterSettings.echoMeterGroup.TIM !== undefined">
+  <div class="meter-container"
+    *ngFor="let item of meterSettings.echoMeterGroup | keyvalue">
+
+      <input type="range" min="0" max="100" value="item.value" class="meter-slider"
+        (input)="meterChange($event, item.key)">
+        <div class="meter-title">
+          {{ item.key }}
+        </div>
+  </div>
+</div>
+

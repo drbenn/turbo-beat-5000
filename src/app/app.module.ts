@@ -13,6 +13,7 @@ import { MeterGroupingComponent } from './meter-grouping/meter-grouping.componen
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { AppState } from './shared/state/appState.state';
+import { SynthMetersComponent } from './synth-meters/synth-meters.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AppState } from './shared/state/appState.state';
     SliderMeterComponent,
     ConsoleComponent,
     MeterComponent,
-    MeterGroupingComponent
+    MeterGroupingComponent,
+    SynthMetersComponent
   ],
   imports: [
     BrowserModule,

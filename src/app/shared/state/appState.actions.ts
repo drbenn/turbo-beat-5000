@@ -1,4 +1,4 @@
-export class UpdateSettings {
-  static readonly type = '[AUDIO-SETTINGS] update audio settings';
-  constructor(public settings: any) {}
+export class UpdateSynthSetting {
+  static readonly type = '[SYNTH-SETTINGS] update synth setting';
+  constructor(public setting: any) {}
 }

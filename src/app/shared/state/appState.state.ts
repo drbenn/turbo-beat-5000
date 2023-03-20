@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext, Store } from "@ngxs/store";
-import { UpdateSettings } from "./appState.actions";
+import { UpdateSynthSetting } from "./appState.actions";
 
 export interface AppStateModel {
     percussionPlaying: boolean;
@@ -13,15 +13,21 @@ export interface AppStateModel {
       percussionPlaying: false,
       settings: {
         envelopeMeterGroup: {
-            attack: { dislayName: 'ATK', value: 0},
-            decay: { dislayName: 'DEC', value: 0},
-            sustain: { dislayName: 'SUS', value: 0},
-            release:{ dislayName: 'REL', value: 0},
+            // attack, decay, sustain, release
+            // attack: { dislayName: 'ATK', value: 0},
+            // decay: { dislayName: 'DEC', value: 0},
+            // sustain: { dislayName: 'SUS', value: 0},
+            // release:{ dislayName: 'REL', value: 0},
+            ATK: 0,
+            DEC: 0,
+            SUS: 0,
+            REL: 0,
           },
           echoMeterGroup: {
-            time: { dislayName: 'TIM', value: 0},
-            feedback: { dislayName: 'FBK', value: 0},
-            maxDuration: { dislayName: 'DUR', value: 0},
+            // time, feedback, max duration
+            TIM: 0,
+            FDB: 0,
+            DUR: 0,
           }
       },
     },
@@ -35,12 +41,17 @@ export interface AppStateModel {
     ) {}
 
 
-    @Action(UpdateSettings)
-    updateSettings(
+    @Action(UpdateSynthSetting)
+    updateSynthSetting(
       ctx: StateContext<AppStateModel>,
-      payload: { settings: any }
+      payload: { setting: any }
     ) {
-      ctx.patchState({ settings: payload.settings });
+      let state = ctx.getState();
+      console.log('state');
+      console.log(state);
+
+
+      ctx.patchState({ settings: payload.setting });
     }
 
     }
