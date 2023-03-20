@@ -10,6 +10,10 @@ import { ConsoleComponent } from './console/console.component';
 import { MeterComponent } from './meter/meter.component';
 import { MeterGroupingComponent } from './meter-grouping/meter-grouping.component';
 
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { AppState } from './shared/state/appState.state';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,9 @@ import { MeterGroupingComponent } from './meter-grouping/meter-grouping.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxsModule.forRoot([AppState]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
