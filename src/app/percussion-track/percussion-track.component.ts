@@ -11,9 +11,9 @@ import { PercussionObject } from '../shared/models';
 export class PercussionTrackComponent implements OnInit {
   audio: any;
   isLooping: boolean = false;
-  kickAudioPath: string = "./assets/audio/linn-kick.wav";
-  snareAudioPath: string = "./assets/audio/linn-snare.wav";
-  hatAudioPath: string = "./assets/audio/linn-hat.wav";
+  kickAudioPath: string = "./assets/audio/linn-kick.mp3";
+  snareAudioPath: string = "./assets/audio/linn-snare.mp3";
+  hatAudioPath: string = "./assets/audio/linn-hat.mp3";
   soundImgName: string = "audio-3-off";
 
   percussionTrack$: Observable<any> = this.store.select((state) => state.appState.percussionTrack);
@@ -28,6 +28,10 @@ export class PercussionTrackComponent implements OnInit {
   kick: any;
   snare: any;
   hat: any;
+
+  bpm: number = 480;
+  bps: number = this.bpm/60;
+  beatIndex: number = 0;
 
 
   constructor(private store:Store) {
@@ -107,7 +111,7 @@ export class PercussionTrackComponent implements OnInit {
     //   this.soundImgName = this.soundImgName.slice(0, strLen -2) + "off";
     //   this.audio.muted = true;
     // }
-    console.log(this.beatTime);
+    // console.log(this.beatTime);
 
   }
 
@@ -118,7 +122,7 @@ export class PercussionTrackComponent implements OnInit {
 
   startLoop() {
     this.isLooping = true;
-    console.log('start loop');
+    // console.log('start loop');
     // while (this.isLooping) {
     //   this.intervalId = window.setInterval(() => {
     //     // this.beatLoop()
@@ -138,21 +142,24 @@ export class PercussionTrackComponent implements OnInit {
 
     // },1000)
     this.interval = setInterval(() => {
-      const bpm: number = 100;
-      const bps: number = 60/bpm;
-      const intervalReset: number = bps * 1600; // beats x 16 t/f options
+
+      const intervalReset: number = 1600 / this.bps; // beats x 16 t/f options
+      const beatInterval: number = intervalReset / 16;
         if (this.isLooping) {
           if (this.interval >= intervalReset) {this.interval = 0}
-          console.log(this.interval / bps);
+          // console.log(this.interval / this.bps);
 
-          if (this.interval % bps === 0) {
-            console.log(this.interval);
+          // if (this.interval % beatInterval === 0) {
+            if (this.interval % 100 === 0) {
+            // console.log(this.interval);
+            this.beatIndex += 1;
+            // console.log(this.beatIndex);
 
-            this.playBeat(bpm, this.interval, this.percussionTrack);
+            this.playBeat(this.bpm, this.interval, this.percussionTrack);
           }
 
           this.addTime();
-
+          if (this.beatIndex === 15) {this.beatIndex = 0}
 
         }
       }
@@ -161,7 +168,7 @@ export class PercussionTrackComponent implements OnInit {
   }
 
   addTime() {
-    this.interval += 1;
+    this.interval += 1 * this.bps;
   }
 
   stopLoop() {
@@ -174,19 +181,19 @@ export class PercussionTrackComponent implements OnInit {
 
   playBeat(beat:number, interval: any, track:any,) {
     console.log('beat/note opportunity');
-    const beatIndex:number = (interval/beat);
-    console.log(beatIndex);
-    console.log(track.kick);
-    console.log(track.kick[beatIndex-1]);
+    // const beatIndex:number = (interval/beat);
+    // console.log(beatIndex);
+    // console.log(track.kick);
+    // console.log(track.kick[beatIndex-1]);
 
 
-    if (track.kick[beatIndex-1]) {
+    if (track.kick[this.beatIndex-1]) {
       this.playKick();
     }
-    if (track.snare[beatIndex-1]) {
+    if (track.snare[this.beatIndex-1]) {
       this.playSnare();
     }
-    if (track.highHat[beatIndex-1]) {
+    if (track.highHat[this.beatIndex-1]) {
       this.playHat();
     }
 

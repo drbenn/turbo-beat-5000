@@ -32,7 +32,7 @@ export interface AppStateModel {
           }
       },
       percussionTrack: {
-        kick: [ true, false, false, false, true, false, false, false, true, false, false, false, false, false, false, false ],
+        kick: [ true, false, true, false, true, false, true, false, true, false, false, false, false, false, false, false ],
         snare: [ false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false ],
         highHat: [ false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false ]
       },
