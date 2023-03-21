@@ -5,6 +5,7 @@ import { UpdateSynthSetting } from "./appState.actions";
 export interface AppStateModel {
     percussionPlaying: boolean;
     settings: any;
+    percussionTrack: any;
   }
 
   @State<AppStateModel>({
@@ -29,6 +30,11 @@ export interface AppStateModel {
             FDB: 0,
             DUR: 0,
           }
+      },
+      percussionTrack: {
+        kick: [ true, false, false, false, true, false, false, false, true, false, false, false, false, false, false, false ],
+        snare: [ false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false ],
+        highHat: [ false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false ]
       },
     },
   })

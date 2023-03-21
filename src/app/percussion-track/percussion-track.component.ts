@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 import { PercussionObject } from '../shared/models';
 
 @Component({
@@ -6,26 +8,54 @@ import { PercussionObject } from '../shared/models';
   templateUrl: './percussion-track.component.html',
   styleUrls: ['./percussion-track.component.scss']
 })
-export class PercussionTrackComponent {
+export class PercussionTrackComponent implements OnInit {
   audio: any;
-  kickAudioPath: string = "./assets/audio/Reverb LinnDrum Sample Pack_Kick Hard.wav";
+  isLooping: boolean = false;
+  kickAudioPath: string = "./assets/audio/linn-kick.wav";
+  snareAudioPath: string = "./assets/audio/linn-snare.wav";
+  hatAudioPath: string = "./assets/audio/linn-hat.wav";
   soundImgName: string = "audio-3-off";
 
+  percussionTrack$: Observable<any> = this.store.select((state) => state.appState.percussionTrack);
 
-
-  percussion: any = {
-    kick: [ false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false ],
-    snare: [ false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false ],
-    highHat: [ false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false ]
-  }
+  percussionTrack: any = {kick: [], snare: [], highHat: []};
 
   beatTime: number = 0;
   beatTempo: number = 34; // 34 = staying alive
   intervalId: number;
+  interval: any;
+
+  kick: any;
+  snare: any;
+  hat: any;
+
+
+  constructor(private store:Store) {
+
+
+  }
+  ngOnInit(): void {
+    this.percussionTrack$.subscribe((track: any) => {
+      console.log(track);
+      this.percussionTrack = track;
+    })
+
+    this.kick = new Audio();
+    this.kick.load();
+    this.kick.src = this.kickAudioPath;
+
+    this.snare = new Audio();
+    this.snare.load();
+    this.snare.src = this.snareAudioPath;
+
+    this.hat = new Audio();
+    this.hat.load();
+    this.hat.src = this.hatAudioPath;
+  }
 
   toggleBeat(i:number, name:string) {
-      this.percussion[name][i] = !this.percussion[name][i]
-    console.log(this.percussion);
+    //   this.percussion[name][i] = !this.percussion[name][i]
+    // console.log(this.percussion);
 
   }
 
@@ -79,5 +109,103 @@ export class PercussionTrackComponent {
     // }
     console.log(this.beatTime);
 
+  }
+
+  stopSound() {
+    this.audio.pause();
+  }
+
+
+  startLoop() {
+    this.isLooping = true;
+    console.log('start loop');
+    // while (this.isLooping) {
+    //   this.intervalId = window.setInterval(() => {
+    //     // this.beatLoop()
+    //     console.log(this.beatTime);
+    //     //
+    //   }
+    //     );
+    // }
+    //while loop == true
+    // this.interval = setInterval(() => {
+    //   // if(this.timeLeft > 0) {
+    //   //   this.timeLeft--;
+    //   // } else {
+    //   //   this.timeLeft = 60;
+    //   // }
+    //   console.log(this.interval);
+
+    // },1000)
+    this.interval = setInterval(() => {
+      const bpm: number = 100;
+      const bps: number = 60/bpm;
+      const intervalReset: number = bps * 1600; // beats x 16 t/f options
+        if (this.isLooping) {
+          if (this.interval >= intervalReset) {this.interval = 0}
+          console.log(this.interval / bps);
+
+          if (this.interval % bps === 0) {
+            console.log(this.interval);
+
+            this.playBeat(bpm, this.interval, this.percussionTrack);
+          }
+
+          this.addTime();
+
+
+        }
+      }
+    );
+
+  }
+
+  addTime() {
+    this.interval += 1;
+  }
+
+  stopLoop() {
+    this.isLooping = false;
+    console.log('stop loop');
+    console.log(this.interval);
+    this.interval = 0;
+    clearInterval(this.interval);
+  }
+
+  playBeat(beat:number, interval: any, track:any,) {
+    console.log('beat/note opportunity');
+    const beatIndex:number = (interval/beat);
+    console.log(beatIndex);
+    console.log(track.kick);
+    console.log(track.kick[beatIndex-1]);
+
+
+    if (track.kick[beatIndex-1]) {
+      this.playKick();
+    }
+    if (track.snare[beatIndex-1]) {
+      this.playSnare();
+    }
+    if (track.highHat[beatIndex-1]) {
+      this.playHat();
+    }
+
+
+
+  }
+
+  playKick() {
+    console.log('KICK');
+    this.kick.play();
+  }
+
+  playSnare() {
+    console.log('SNARE');
+    this.snare.play();
+  }
+
+  playHat() {
+    console.log('HAT');
+    this.hat.play();
   }
 }
