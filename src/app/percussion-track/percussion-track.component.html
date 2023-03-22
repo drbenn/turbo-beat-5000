@@ -2,32 +2,39 @@
 <button (click)="startTime()">Play</button>
 <button (click)="playSound()">PlaySound</button>
 <button (click)="stopSound()">Stop Sound</button> -->
-<button (click)="startLoop()">Start Loop</button>
-<button (click)="stopLoop()">Stop Loop</button>
+<div class="percussion-controls-container">
+  <div>
+    <button (click)="startLoop()">Start Loop</button>
+  </div>
+  <div>
+    <button (click)="stopLoop()">Stop Loop</button>
+  </div>
+  <div class="animation-container">
+    <app-play-animation></app-play-animation>
+  </div>
+</div>
+
+
 <p>{{interval }}</p>
 <div class="instrument-row">
   <div class="instrument-title">
-    Kick
+    K
   </div>
   <div *ngFor="let beat of percussionTrack.kick; index as i" class="instrument-row-block" (click)="toggleBeat(i, 'kick')" [ngClass]="{'instrument-row-block-active': beat }">
   </div>
 </div>
-
-
 <div class="instrument-row">
   <div class="instrument-title">
-    Snare
+    S
   </div>
-  <div *ngFor="let beat of percussionTrack.snare; index as i" class="instrument-row-block"(click)="toggleBeat(i, 'snare')" [ngClass]="{'instrument-row-block-active': beat }">
+  <div *ngFor="let beat of percussionTrack.snare; index as i" class="instrument-row-block" (click)="toggleBeat(i, 'snare')" [ngClass]="{'instrument-row-block-active': beat }">
   </div>
 </div>
-
-
 <div class="instrument-row">
   <div class="instrument-title">
-    HighHat
+    H
   </div>
-  <div *ngFor="let beat of percussionTrack.highHat; index as i" class="instrument-row-block"(click)="toggleBeat(i, 'highHat')" [ngClass]="{'instrument-row-block-active': beat }">
+  <div *ngFor="let beat of percussionTrack.highHat; index as i" class="instrument-row-block" (click)="toggleBeat(i, 'highHat')" [ngClass]="{'instrument-row-block-active': beat }">
   </div>
 </div>
 

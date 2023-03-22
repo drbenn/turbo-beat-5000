@@ -15,7 +15,7 @@ export class PlayAnimationComponent implements OnInit {
   ngOnInit(): void {
     this.beatPlaying$.subscribe((beat) => {
       this.isBeat = beat;
-      console.log(this.isBeat);
+      // console.log(this.isBeat);
 
     })
   }

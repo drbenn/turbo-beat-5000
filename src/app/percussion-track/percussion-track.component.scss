@@ -4,10 +4,13 @@
   width: fit-content;
   height: fit-content;
   border: $percussion-container-border;
-  background: $percussion-container-bg;
+  border-radius: 2px;
+  box-shadow: $percussion-container-box-shadow;
+  // background: $percussion-container-bg;
   color: $percussion-container-text-color;
   // text-shadow: 2px 2px 3px rgb(240, 48, 247);
-  padding: 2rem;
+  padding: 0.5rem 1rem 1rem 0.5rem;
+  margin: 0rem 2rem;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -15,6 +18,21 @@
   align-items: center;
 }
 
+.percussion-controls-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 95%;
+
+}
+
+.animation-container {
+  height: 3rem;
+  width: 3rem;
+  // border: 1px solid salmon;
+  margin-left: auto;
+}
 
 .instrument-row {
   display: flex;
@@ -26,7 +44,7 @@
 }
 
 .instrument-title {
-  width: 4rem;
+  width: 1rem;
   font-size: 0.8rem;
   font-weight: 100;
   font-family: Arial, Helvetica, sans-serif;
@@ -35,12 +53,27 @@
   margin-right: 0.5rem;
 }
 .instrument-row-block {
-  height: 1.5rem;
-  width: 2rem;
+  height: $instrument-block-height;
+  width: $instrument-block-width;
   border: $instrument-block-border;
   background-color: $instrument-block-bg;
   color: black;
   transition: 100ms;
+  // animation: playing-block 1s ease-in-out infinite;
+}
+
+@keyframes playing-block {
+  0% {
+    background-color: $instrument-block-bg;
+  }
+  50% {
+    background-color: $instrument-block-bg-play;
+    scale: 1.2;
+  }
+  100% {
+    background-color: $instrument-block-bg;
+  }
+  
 }
 
 .instrument-row-block:nth-child(4n + 1) {
@@ -53,8 +86,8 @@
 }
 
 .instrument-row-block-active {
-  height: 1.5rem;
-  width: 2rem;
+  height: $instrument-block-height;
+  width: $instrument-block-width;
   border: $instrument-block-active-border;
   background-color: $instrument-block-active-bg;
   color: black;
