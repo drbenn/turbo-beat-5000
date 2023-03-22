@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext, Store } from "@ngxs/store";
-import { UpdateSynthSetting } from "./appState.actions";
+import { UpdateSynthSetting, UpdateWaveform } from "./appState.actions";
 
 export interface AppStateModel {
     percussionPlaying: boolean;
+    selectedWaveform: string,
     settings: any;
     percussionTrack: any;
   }
@@ -12,6 +13,7 @@ export interface AppStateModel {
     name: 'appState',
     defaults: {
       percussionPlaying: false,
+      selectedWaveform: 'SIN',
       settings: {
         envelopeMeterGroup: {
             // attack, decay, sustain, release
@@ -59,5 +61,15 @@ export interface AppStateModel {
 
       ctx.patchState({ settings: payload.setting });
     }
+
+
+    @Action(UpdateWaveform)
+    updateWaveform(
+      ctx: StateContext<AppStateModel>,
+      payload: { waveform: string }
+    ) {
+      ctx.patchState({ selectedWaveform: payload.waveform });
+    }
+
 
     }

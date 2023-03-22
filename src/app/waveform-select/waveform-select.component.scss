@@ -1,0 +1,49 @@
+@import "../shared/variables.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  box-shadow: $wave-container-box-shadow;
+  border-left: $wave-container-border;
+  border-right: $wave-container-border;
+  cursor: default;
+}
+
+.wave-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  width: 3rem;
+  color: $wave-button-text-color;
+  text-shadow: $wave-button-text-shadow;
+  font-size: 0.65rem;
+  background: $wave-button-bg;
+  transition: 100ms ease-in;
+}
+
+.wave-button:nth-child(-n + 3) {
+  border-right: $wave-button-border-right;
+}
+
+.wave-button:hover {
+  background: $wave-button-bg-hover;
+  transition: 100ms ease-in;
+}
+
+.wave-button-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  width: 3rem;
+  color: $wave-button-text-color;
+  text-shadow: $wave-button-text-shadow;
+  font-size: 0.65rem;
+  background: $wave-button-bg-active;
+  transition: 100ms ease-in;
+  box-shadow: $wave-button-box-shadow;
+}

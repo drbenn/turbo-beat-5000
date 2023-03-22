@@ -14,6 +14,8 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { AppState } from './shared/state/appState.state';
 import { SynthMetersComponent } from './synth-meters/synth-meters.component';
+import { SynthPadComponent } from './synth-pad/synth-pad.component';
+import { WaveformSelectComponent } from './waveform-select/waveform-select.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { SynthMetersComponent } from './synth-meters/synth-meters.component';
     ConsoleComponent,
     MeterComponent,
     MeterGroupingComponent,
-    SynthMetersComponent
+    SynthMetersComponent,
+    SynthPadComponent,
+    WaveformSelectComponent
   ],
   imports: [
     BrowserModule,
