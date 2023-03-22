@@ -16,6 +16,7 @@ import { AppState } from './shared/state/appState.state';
 import { SynthMetersComponent } from './synth-meters/synth-meters.component';
 import { SynthPadComponent } from './synth-pad/synth-pad.component';
 import { WaveformSelectComponent } from './waveform-select/waveform-select.component';
+import { PlayAnimationComponent } from './play-animation/play-animation.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { WaveformSelectComponent } from './waveform-select/waveform-select.compo
     MeterGroupingComponent,
     SynthMetersComponent,
     SynthPadComponent,
-    WaveformSelectComponent
+    WaveformSelectComponent,
+    PlayAnimationComponent
   ],
   imports: [
     BrowserModule,

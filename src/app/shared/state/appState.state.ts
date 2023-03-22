@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext, Store } from "@ngxs/store";
-import { UpdateSynthSetting, UpdateWaveform } from "./appState.actions";
+import { PercussionPlaying, UpdateSynthSetting, UpdateWaveform } from "./appState.actions";
 
 export interface AppStateModel {
     percussionPlaying: boolean;
@@ -62,6 +62,13 @@ export interface AppStateModel {
       ctx.patchState({ settings: payload.setting });
     }
 
+    @Action(PercussionPlaying)
+    percussionPlaying(
+      ctx: StateContext<AppStateModel>,
+      payload: { isPlaying: boolean }
+    ) {
+      ctx.patchState({ percussionPlaying: payload.isPlaying });
+    }
 
     @Action(UpdateWaveform)
     updateWaveform(

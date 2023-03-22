@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { PercussionObject } from '../shared/models';
+import { PercussionPlaying } from '../shared/state/appState.actions';
 
 @Component({
   selector: 'app-percussion-track',
@@ -121,6 +122,7 @@ export class PercussionTrackComponent implements OnInit {
 
 
   startLoop() {
+    this.store.dispatch(new PercussionPlaying(true));
     this.isLooping = true;
     // console.log('start loop');
     // while (this.isLooping) {
@@ -172,6 +174,7 @@ export class PercussionTrackComponent implements OnInit {
   }
 
   stopLoop() {
+    this.store.dispatch(new PercussionPlaying(false));
     this.isLooping = false;
     console.log('stop loop');
     console.log(this.interval);
