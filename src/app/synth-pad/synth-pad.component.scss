@@ -1,0 +1,11 @@
+@import "../shared/variables.scss";
+
+.synth-pad-container {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 4px;
+  margin: 2rem;
+  border: $synth-pad-border;
+  background: $synth-pad-bg;
+  box-shadow: $synth-pad-box-shadow;
+}
