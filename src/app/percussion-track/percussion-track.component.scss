@@ -73,10 +73,14 @@
   100% {
     background-color: $instrument-block-bg;
   }
-  
+
 }
 
-.instrument-row-block:nth-child(4n + 1) {
+// .instrument-row-block:nth-child(4n + 1) {
+//   border-right: $instrument-block-measure-border;
+// }
+
+.if-fourth:nth-child(4n + 1) {
   border-right: $instrument-block-measure-border;
 }
 

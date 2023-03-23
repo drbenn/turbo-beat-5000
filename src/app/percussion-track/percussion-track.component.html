@@ -27,21 +27,21 @@
   <div class="instrument-title">
     K
   </div>
-  <div *ngFor="let beat of percussionTrack.kick; index as i" class="instrument-row-block" (click)="toggleBeat(i, 'kick')" [ngClass]="beat ? 'instrument-row-block-active' : 'instrument-row-block'">
+  <div *ngFor="let beat of percussionTrack.kick; index as i" (click)="toggleBeat(i, 'kick')" [ngClass]="beat ? 'instrument-row-block-active if-fourth' : 'instrument-row-block if-fourth'">
   </div>
 </div>
 <div class="instrument-row">
   <div class="instrument-title">
     S
   </div>
-  <div *ngFor="let beat of percussionTrack.snare; index as i" class="instrument-row-block" (click)="toggleBeat(i, 'snare')" [ngClass]="{'instrument-row-block-active': beat }">
+  <div *ngFor="let beat of percussionTrack.snare; index as i" (click)="toggleBeat(i, 'snare')" [ngClass]="beat ? 'instrument-row-block-active if-fourth' : 'instrument-row-block if-fourth'">
   </div>
 </div>
 <div class="instrument-row">
   <div class="instrument-title">
     H
   </div>
-  <div *ngFor="let beat of percussionTrack.highHat; index as i" class="instrument-row-block" (click)="toggleBeat(i, 'highHat')" [ngClass]="{'instrument-row-block-active': beat }">
+  <div *ngFor="let beat of percussionTrack.highHat; index as i"  (click)="toggleBeat(i, 'highHat')" [ngClass]="beat ? 'instrument-row-block-active if-fourth' : 'instrument-row-block if-fourth'">
   </div>
 </div>
 
