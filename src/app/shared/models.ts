@@ -7,10 +7,10 @@ export interface PercussionObject {
 
 
 export interface SynthPadBounds {
-  top: number, 
-  right: number, 
-  bottom: number, 
-  left: number, 
+  top: number,
+  right: number,
+  bottom: number,
+  left: number,
   volumeRange: number,
   pitchRange: number,
 }

@@ -4,23 +4,30 @@
 <button (click)="stopSound()">Stop Sound</button> -->
 <div class="percussion-controls-container">
   <div>
-    <button (click)="startLoop()">Start Loop</button>
+    <!-- <button (click)="startLoop()">Start Loop</button> -->
+    <!-- <button (click)="go('kick')">Kick</button>
+    <button (click)="go('snare')">Snare</button>
+    <button (click)="go('hat')">Hat</button> -->
+    <button (click)="startTimeOsc()">Start time</button>
+    <button (click)="stop()">Stop</button>
+    <button (click)="checkContextTime()">C-Time</button>
+    <div>current Time: {{ currentTime }}</div>
+    <div>next Time: {{ nextNoteTime }}</div>
   </div>
   <div>
-    <button (click)="stopLoop()">Stop Loop</button>
+    <!-- <button (click)="stopLoop()">Stop Loop</button> -->
   </div>
   <div class="animation-container">
-    <app-play-animation></app-play-animation>
+    <!-- <app-play-animation></app-play-animation> -->
   </div>
 </div>
 
 
-<p>{{interval }}</p>
 <div class="instrument-row">
   <div class="instrument-title">
     K
   </div>
-  <div *ngFor="let beat of percussionTrack.kick; index as i" class="instrument-row-block" (click)="toggleBeat(i, 'kick')" [ngClass]="{'instrument-row-block-active': beat }">
+  <div *ngFor="let beat of percussionTrack.kick; index as i" class="instrument-row-block" (click)="toggleBeat(i, 'kick')" [ngClass]="beat ? 'instrument-row-block-active' : 'instrument-row-block'">
   </div>
 </div>
 <div class="instrument-row">

@@ -6,7 +6,7 @@ export class UpdateSynthSetting {
 
 export class UpdatePercussionTrack {
   static readonly type = '[PERCUSSION] update percussion track';
-  constructor(public beat: any) {}
+  constructor(public newBeat: any) {}
 }
 
 export class PercussionPlaying {
