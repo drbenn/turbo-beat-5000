@@ -9,10 +9,19 @@
 <p>volPercent: {{ volumeFactor }}</p>
 <p>pitchFactor: {{ pitchFactor }}</p>
 <p>{{ synthBounds | json }}</p> -->
-<div #synthDiv class="synth-pad-container" 
-  (mousedown)="activateSynth()" 
-  (mouseup)="deactivateSynth()" 
-  (mouseleave)="deactivateSynth()" 
+<div #synthDiv class="synth-pad-container"
+  (mousedown)="activateSynth(); activateCursorAnimation()"
+  (mouseup)="deactivateSynth(); deactivateCursorAnimation()"
+  (mouseleave)="deactivateSynth(); deactivateCursorAnimation()"
   (mouseenter)="getSynthPadBounds()"
   (mousemove)="getMouseCoordinates($event)"
-  ></div>
+  [ngClass]="{'synth-pad-container-no-cursor':isCursorAnimated}"
+  >
+
+  <!-- <div class="animated-cursor"></div> -->
+  <div class="cursor" [style.top]="top" [style.left]="left" [ngClass]="{'expand':expand}" *ngIf="isCursorAnimated && isSynthPlaying"></div>
+
+</div>
+
+
+

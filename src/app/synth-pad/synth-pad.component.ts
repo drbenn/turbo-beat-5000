@@ -16,13 +16,46 @@ export class SynthPadComponent implements OnInit {
     this.getSynthPadBounds();
   }
 
+  isCursorAnimated: boolean = false;
+  top:any;
+  left:any;
+  expand=false;
+  hideCursor=false;
+  animateCursor=false;
+  @HostListener('document:mousedown', ['$event'])
+  onClick($event) {
+    this.isCursorAnimated = true;
+    //  this.expand=true;
+    this.hideCursor=true;
+    this.animateCursor = true;
+     setTimeout(() => {
+      // this.expand=false;
+      this.hideCursor=false;
+      this.animateCursor = false;
+     }, 500000)
+ }
+
+  @HostListener('document:mousemove', ['$event'])
+  onMousemove($event) {
+    // console.log($event);
+
+    // this.top=($event.pageY - 10)+ "px";
+    // this.left= ($event.pageX - 10)+ "px";
+    console.log($event);
+
+    console.log(this.synthBounds);
+
+    this.top=($event.clientY - this.synthBounds.volumeRange +10 )+ "px";
+    this.left= ($event.clientX - this.synthBounds.pitchRange + 25 )+ "px";
+ }
+
   // Volume & pitch factors are 0-1 values to assess and calculate bottom/top range of each using the synthpad
   volumeFactor:number;
   pitchFactor:number;
   synthBounds: SynthPadBounds;
   mouseX: number;
-  mouseY: number;  
-  
+  mouseY: number;
+
   waveformSelected: OscillatorType;
   frequency = 440
   oscBank = new Array(3);
@@ -45,8 +78,12 @@ export class SynthPadComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getSynthPadBounds();  
-    
+    console.log(this.top);
+    console.log(this.left);
+
+
+    this.getSynthPadBounds();
+
     this.waveform$.subscribe((wave) => {
       switch(wave) {
         case 'SIN':
@@ -70,12 +107,12 @@ export class SynthPadComponent implements OnInit {
   // playOscillators(event) {
   playOscillators() {
     // console.log(event);
-    
+
     // this.frequency = event.target?.value;
     let pitchLimits: number[] = [ 20, 1200];
     this.frequency = pitchLimits[0] + ((pitchLimits[1] - pitchLimits[0]) * this.pitchFactor)
     console.log(this.frequency);
-    
+
     this.oscBank[0] = this.createOscillator(this.frequency, 0);
     this.oscBank[1] = this.createOscillator(this.frequency, -this.unisonWidth);
     this.oscBank[2] = this.createOscillator(this.frequency, this.unisonWidth);
@@ -147,11 +184,11 @@ export class SynthPadComponent implements OnInit {
 
   getSynthPadBounds() {
     const bounds = this.synthElement.nativeElement.getBoundingClientRect();
-    this.synthBounds = { 
-      top: bounds.top , 
-      right: bounds.right, 
-      bottom: bounds.bottom, 
-      left: bounds.left, 
+    this.synthBounds = {
+      top: bounds.top ,
+      right: bounds.right,
+      bottom: bounds.bottom,
+      left: bounds.left,
       volumeRange: bounds.right - bounds.left,
       pitchRange: bounds.bottom - bounds.top,
     }
@@ -161,13 +198,25 @@ export class SynthPadComponent implements OnInit {
     this.mouseX = event.clientX;
     this.mouseY = event.clientY;
     this.volumeFactor = (this.mouseX - this.synthBounds.left) / this.synthBounds.volumeRange
-    this.pitchFactor = 1 - (this.mouseY - this.synthBounds.top) / this.synthBounds.pitchRange 
+    this.pitchFactor = 1 - (this.mouseY - this.synthBounds.top) / this.synthBounds.pitchRange
     if (this.isSynthPlaying) {
       let blank:Event;
       this.playOscillators()
       // console.log(event);
-      
+
     }
+  }
+
+
+  activateCursorAnimation() {
+    console.log('mouse cursor activate');
+    this.isCursorAnimated = true;
+  }
+
+  deactivateCursorAnimation() {
+    console.log('mouse cursor deactivate');
+    this.isCursorAnimated = false;
+
   }
 
 }
