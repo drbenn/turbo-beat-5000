@@ -8,11 +8,20 @@
     <!-- <button (click)="go('kick')">Kick</button>
     <button (click)="go('snare')">Snare</button>
     <button (click)="go('hat')">Hat</button> -->
-    <button (click)="startTimeOsc()">Start time</button>
-    <button (click)="stop()">Stop</button>
-    <button (click)="checkContextTime()">C-Time</button>
-    <div>current Time: {{ currentTime }}</div>
-    <div>next Time: {{ nextNoteTime }}</div>
+    <div class="play-button-group">
+      <div class="play-button" (click)="startTimeOsc()">
+        <img src="../../assets/image/icons8-play-100.png" alt="">
+      </div>
+      <div class="stop-button" (click)="stop()">
+        <img src="../../assets/image/icons8-stop-100.png" alt="">
+      </div>
+    </div>
+
+    <!-- <button (click)="startTimeOsc()">Start time</button>
+    <button (click)="stop()">Stop</button> -->
+    <!-- <button (click)="checkContextTime()">C-Time</button> -->
+    <!-- <div>current Time: {{ currentTime }}</div>
+    <div>next Time: {{ nextNoteTime }}</div> -->
   </div>
   <div>
     <!-- <button (click)="stopLoop()">Stop Loop</button> -->
@@ -25,21 +34,21 @@
 
 <div class="instrument-row">
   <div class="instrument-title">
-    <img src="../../assets/image/icons8-snare-drum-64.png">
+    <img src="/assets/image/icons8-snare-drum-64.png">
   </div>
   <div *ngFor="let beat of percussionTrack.kick; index as i" (click)="toggleBeat(i, 'kick')" [ngClass]="beat ? 'instrument-row-block-active if-fourth' : 'instrument-row-block if-fourth'">
   </div>
 </div>
 <div class="instrument-row">
   <div class="instrument-title">
-    <img src="../../assets/image/icons8-snare-drum-90.png">
+    <img src="/assets/image/icons8-snare-drum-90.png">
   </div>
   <div *ngFor="let beat of percussionTrack.snare; index as i" (click)="toggleBeat(i, 'snare')" [ngClass]="beat ? 'instrument-row-block-active if-fourth' : 'instrument-row-block if-fourth'">
   </div>
 </div>
 <div class="instrument-row">
   <div class="instrument-title">
-    <img src="../../assets/image/icons8-cymbal-96.png">
+    <img src="/assets/image/icons8-cymbal-96.png">
   </div>
   <div *ngFor="let beat of percussionTrack.highHat; index as i"  (click)="toggleBeat(i, 'highHat')" [ngClass]="beat ? 'instrument-row-block-active if-fourth' : 'instrument-row-block if-fourth'">
   </div>
