@@ -285,7 +285,10 @@ startTimeOsc() {
 // window.setTimeout(this.scheduler, 50.0)
   console.log(this.timeOsc);
 
-  this.setIntervalTime = window.setInterval(() => this.scheduler(), 50); // time called at ongoing interal, thus this.count +=1 to accumulate change of time
+  if (this.isPlaying) {
+    this.setIntervalTime = window.setInterval(() => this.scheduler(), 50); // time called at ongoing interal, thus this.count +=1 to accumulate change of time
+  }
+
 
   // this.scheduler()
   // this.timeOsc.stop(this.timeAudioContext.currentTime + 0.5);

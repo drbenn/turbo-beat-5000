@@ -6,7 +6,7 @@
     *ngFor="let item of meterSettings.envelopeMeterGroup | keyvalue">
 
       <input type="range" min="0" max="100" value="item.value" class="meter-slider"
-        (input)="meterChange($event, item.key)">
+        (input)="meterChange($event, item.key, 'envelope')">
         <div class="meter-title">
           {{ item.key }}
         </div>
@@ -18,7 +18,7 @@
     *ngFor="let item of meterSettings.echoMeterGroup | keyvalue">
 
       <input type="range" min="0" max="100" value="item.value" class="meter-slider"
-        (input)="meterChange($event, item.key)">
+        (input)="meterChange($event, item.key, 'echo')">
         <div class="meter-title">
           {{ item.key }}
         </div>

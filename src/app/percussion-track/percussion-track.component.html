@@ -25,21 +25,21 @@
 
 <div class="instrument-row">
   <div class="instrument-title">
-    K
+    <img src="../../assets/image/icons8-snare-drum-64.png">
   </div>
   <div *ngFor="let beat of percussionTrack.kick; index as i" (click)="toggleBeat(i, 'kick')" [ngClass]="beat ? 'instrument-row-block-active if-fourth' : 'instrument-row-block if-fourth'">
   </div>
 </div>
 <div class="instrument-row">
   <div class="instrument-title">
-    S
+    <img src="../../assets/image/icons8-snare-drum-90.png">
   </div>
   <div *ngFor="let beat of percussionTrack.snare; index as i" (click)="toggleBeat(i, 'snare')" [ngClass]="beat ? 'instrument-row-block-active if-fourth' : 'instrument-row-block if-fourth'">
   </div>
 </div>
 <div class="instrument-row">
   <div class="instrument-title">
-    H
+    <img src="../../assets/image/icons8-cymbal-96.png">
   </div>
   <div *ngFor="let beat of percussionTrack.highHat; index as i"  (click)="toggleBeat(i, 'highHat')" [ngClass]="beat ? 'instrument-row-block-active if-fourth' : 'instrument-row-block if-fourth'">
   </div>

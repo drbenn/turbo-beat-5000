@@ -24,11 +24,11 @@ export class SynthMetersComponent implements OnInit {
     })
   }
 
-  meterChange(e:any, name: any) {
+  meterChange(e:any, name: any, group: string) {
     let value = 100 - e.target.value // flip counting due to slider orientation
     console.log(value);
     console.log(name);
-    this.store.dispatch(new UpdateSynthSetting({settingName: name, settingValue: value}))
+    this.store.dispatch(new UpdateSynthSetting({settingName: name, settingValue: value, groupName: group}))
 
   }
 }

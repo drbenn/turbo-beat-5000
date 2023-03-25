@@ -41,9 +41,9 @@ export class SynthPadComponent implements OnInit {
 
     // this.top=($event.pageY - 10)+ "px";
     // this.left= ($event.pageX - 10)+ "px";
-    console.log($event);
+    // console.log($event);
 
-    console.log(this.synthBounds);
+    // console.log(this.synthBounds);
 
     this.top=($event.clientY - this.synthBounds.volumeRange +10 )+ "px";
     this.left= ($event.clientX - this.synthBounds.pitchRange + 25 )+ "px";
@@ -59,10 +59,10 @@ export class SynthPadComponent implements OnInit {
   waveformSelected: OscillatorType;
   frequency = 440
   oscBank = new Array(3);
-  unisonWidth:number = 5;
+  unisonWidth:number = 10;
 
     // ADSR values between 0 & 1
-    ADSR = { attack: 1, decay: 0, sustain: 0, release: 0}
+    ADSR = { attack: 1, decay: 1, sustain: 1, release: 0}
     STAGE_MAX_TIME = 10;
 
     echo = {
@@ -78,8 +78,8 @@ export class SynthPadComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.top);
-    console.log(this.left);
+    // console.log(this.top);
+    // console.log(this.left);
 
 
     this.getSynthPadBounds();
@@ -116,6 +116,7 @@ export class SynthPadComponent implements OnInit {
     this.oscBank[0] = this.createOscillator(this.frequency, 0);
     this.oscBank[1] = this.createOscillator(this.frequency, -this.unisonWidth);
     this.oscBank[2] = this.createOscillator(this.frequency, this.unisonWidth);
+
   }
 
   createOscillator(freq: number, detune: number) {
@@ -125,7 +126,7 @@ export class SynthPadComponent implements OnInit {
 
     //------------gainNode--------------
     const gainNode = actx.createGain()
-    gainNode.gain.cancelScheduledValues(20);
+    gainNode.gain.cancelScheduledValues(0);
 
     const osc = actx.createOscillator();
 
@@ -163,7 +164,7 @@ export class SynthPadComponent implements OnInit {
     osc.detune.value = detune
     osc.connect(actx.destination); // soundcard output
     osc.start();
-    osc.stop(actx.currentTime + 0.2); //2 seconds of play
+    osc.stop(actx.currentTime + 0.1); //2 seconds of play
     return osc;
 
   }
@@ -202,7 +203,7 @@ export class SynthPadComponent implements OnInit {
     if (this.isSynthPlaying) {
       let blank:Event;
       this.playOscillators()
-      // console.log(event);
+
 
     }
   }

@@ -51,6 +51,10 @@
   // border: 1px solid white;
   text-align: end;
   margin-right: 0.5rem;
+
+  img {
+    width: 100%;
+  }
 }
 .instrument-row-block {
   height: $instrument-block-height;

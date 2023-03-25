@@ -13,7 +13,7 @@ export interface AppStateModel {
     name: 'appState',
     defaults: {
       percussionPlaying: false,
-      selectedWaveform: 'SIN',
+      selectedWaveform: 'SQR',
       settings: {
         envelopeMeterGroup: {
             // attack, decay, sustain, release
@@ -54,12 +54,30 @@ export interface AppStateModel {
       ctx: StateContext<AppStateModel>,
       payload: { setting: any }
     ) {
-      let state = ctx.getState();
+      const group = payload.setting.groupName
+      const settingName = payload.setting.settingName
+      let stateSynthSettings = ctx.getState().settings;
       console.log('state');
-      console.log(state);
+      console.log(group);
+      console.log(settingName);
 
 
-      ctx.patchState({ settings: payload.setting });
+      let newSettings = stateSynthSettings;
+
+      if (group === 'envelope') {
+        // newSettings.envelopeMeterGroup[settingName] = payload.setting.settingValue
+        // console.log(newSettings);
+      }
+
+      if (group === 'echo') {
+        // newSettings.envelopeMeterGroup['settingName'] = payload.setting.settingValue
+        // console.log(newSettings);
+        // newSettings = {...stateSynthSettings, echoMeterGroup: {...stateSynthSettings.echoMeterGroup: payload.setting.settingValue }}
+      }
+
+      console.log(newSettings);
+
+      ctx.patchState({ settings: newSettings });
     }
 
     @Action(PercussionPlaying)
