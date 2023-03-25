@@ -27,8 +27,8 @@ $percussion-container-border: 2px solid #80808054;
 $percussion-container-text-color:#ffffff;
 $percussion-container-bg:linear-gradient(20deg,  #202020, #151515 );
 $percussion-container-box-shadow: 0px 0px 10px #2bfff4;
-$instrument-block-height: 1.5rem;
-$instrument-block-width: 2rem;
+$instrument-block-height: clamp(1.2rem, calc(0.2rem + 3vw),2rem);
+$instrument-block-width: clamp(0.6rem, calc(0.2rem + 3vw),2rem);
 $instrument-block-border: 1px solid #ababab41;
 $instrument-block-bg:#f0f0f0;
 $instrument-block-bg-play: rgba(20, 255, 255, 0.734);
@@ -36,6 +36,9 @@ $instrument-block-measure-border: 1px solid #212121;
 $instrument-block-hover:#ff70bc;
 $instrument-block-active-border: 1px solid #ababab41;
 $instrument-block-active-bg: #ff0088;
+
+$play-button-width: clamp(1.5rem, calc(1rem + 2vw) , 2.5rem);
+$play-button-height:  clamp(1.5rem, calc(1rem + 2vw) , 2.5rem);
 
 
 // Meter
@@ -69,6 +72,8 @@ $wave-button-box-shadow: 1px 1px 60px rgb(255, 232, 25);
 
 
 // Synth pad
+$synth-pad-height: 15rem;
+$synth-pad-width: clamp(14rem , calc(6rem + 3vw) , 15rem);
 $synth-pad-border: 2px solid rgba(240, 30, 202, 0.554);
 $synth-pad-bg: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(224,244,155,1) 41%, rgba(82,255,239,1) 100%);
 $synth-pad-box-shadow: 1px 2px 20px rgba(255, 108, 204, 0.731);

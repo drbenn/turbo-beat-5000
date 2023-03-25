@@ -32,11 +32,12 @@
   justify-content: center;
   align-items: center;
   // border: 1px solid salmon;
+  margin-bottom: 0.5rem;
 }
 
 .play-button {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: $play-button-width;
+  height: $play-button-height;
   padding: 0rem 0.4rem 0rem 0.5rem;
   background-color: $instrument-block-active-bg;
   margin: 0rem 0.6rem;
@@ -50,8 +51,8 @@
 }
 
 .stop-button {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: $play-button-width;
+  height: $play-button-height;
   padding: 0rem 0.5rem;
   background-color: $instrument-block-active-bg;
   margin: 0rem 0.6rem;
@@ -122,9 +123,9 @@
 //   border-right: $instrument-block-measure-border;
 // }
 
-.if-fourth:nth-child(4n + 1) {
-  border-right: $instrument-block-measure-border;
-}
+// .if-fourth:nth-child(4n + 1) {
+//   border-right: $instrument-block-measure-border;
+// }
 
 .instrument-row-block:hover {
   background-color: $instrument-block-hover;
