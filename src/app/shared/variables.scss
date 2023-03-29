@@ -1,79 +1,81 @@
-
+@import "./theme-variables.scss";
 
 
 // Backdrop
-$backdrop-gradient-bg: linear-gradient(180deg, #2c003e,#2c003e 0%, #131313 100% );
+$backdrop-gradient-bg: $backdrop-gradient-bg--blue;
 
 $grid-container-border: 1px solid #414141;
-$grid-container-shadow: 0px 20px 20px #d8a2ff;
+$grid-container-shadow: $grid-container-shadow--blue;
 
 // $grid-block-border: 1px solid rgb(50, 238, 255);
 $grid-block-border: 1px solid #181818;
 // $grid-block-shadow: 2px 2px 6px rgba(255, 33, 255, 0.287);
-$grid-block-shadow: 1px 1px 2px #ff0095da;
+$grid-block-shadow: $grid-block-shadow--blue;
 
 // Console
 $console-bg-color: rgba(35, 35, 35, 0.20);
 // $console-bg-color: rgba(10, 10, 10, 0.20);
 // $console-bg-color: rgba(208, 208, 208, 0.60);
 // $console-bg-color: rgba(208, 208, 208, 0.34);
-$console-title-color: #ffb845;
 $console-container-border:1px solid #ffffff5e;
-$console-container-shadow: 0px 4px 30px #ff69ffda;
+$console-title-color: $console-title-color--blue;
+$console-container-shadow: $console-container-shadow--blue;
 
 
 // Percussion Track
 $percussion-container-border: 2px solid #80808054;
 $percussion-container-text-color:#ffffff;
 $percussion-container-bg:linear-gradient(20deg,  #202020, #151515 );
-$percussion-container-box-shadow: 0px 0px 10px #2bfff4;
 $instrument-block-height: clamp(1.2rem, calc(0.2rem + 3vw),2rem);
 $instrument-block-width: clamp(0.6rem, calc(0.2rem + 3vw),2rem);
 $instrument-block-border: 1px solid #ababab41;
-$instrument-block-bg:#f0f0f0;
-$instrument-block-bg-play: rgba(20, 255, 255, 0.734);
 $instrument-block-measure-border: 1px solid #212121;
-$instrument-block-hover:#ff70bc;
 $instrument-block-active-border: 1px solid #ababab41;
-$instrument-block-active-bg: #ff0088;
-
 $play-button-width: clamp(1.5rem, calc(1rem + 2vw) , 2.5rem);
 $play-button-height:  clamp(1.5rem, calc(1rem + 2vw) , 2.5rem);
+$instrument-block-bg:$instrument-block-bg--blue;
+$instrument-block-bg-play: $instrument-block-bg-play--blue;
+$instrument-block-hover: $instrument-block-hover--blue;
+$percussion-container-box-shadow: $box-shadow--blue;
+$instrument-block-active-bg: $instrument-block-active-bg--blue;
+
 
 
 // Meter
 
 // $meter-track-border: 1px solid #2b2b2b3e;
-$meter-track-border: 1px solid #2b2b2b00;
-$meter-track-bg-color: #262626;
-$meter-track-shadow: 0px 0px 6px #30fcffbc;
-$meter-knob-bg: #2e2e2e;
-$meter-knob-border: 1px solid #54ffe5;
-$meter-knob-box-shadow: 0px 0px 10px #2bfff4;
+$meter-track-border: 1px solid #c1000000;
+$meter-track-title-text-shadow: 0px 0px 1px rgba(131, 131, 131, 0.846);
+$meter-track-bg-color: $meter-track-bg-color--blue;
+$meter-track-shadow: $meter-track-shadow--blue;
+$meter-track-title-text-color: $meter-track-title-text-color--blue;
+$meter-knob-bg: $meter-knob-bg--blue;
+$meter-knob-border: $meter-knob-border--blue;
+$meter-knob-box-shadow: $meter-knob-box-shadow--blue;
 
 // Meter Group
-$meter-grouping-border: 1px solid #0aa4a7b3;
 // $meter-grouping-box-shadow: 0px 2px 15px #65eaffb3;
-$meter-grouping-box-shadow: 0px 2px 15px #ff88f3;
 $meter-group-border: 1px solid #7b7b7b3f;
 $meter-group-box-shadow: 0px 1px 2px #353535;
+$meter-grouping-border: $meter-grouping-border--blue;
+$meter-grouping-box-shadow: $meter-grouping-box-shadow--blue;
 
 
 // Waveform select
 $wave-container-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.409);
 $wave-container-border: 1px solid rgba(43, 43, 43, 0.474);
+$wave-button-border-right: 1px solid rgba(57, 57, 57, 0.505);
 $wave-button-text-color: rgb(94, 0, 66);
 $wave-button-text-shadow: 1px 1px 1px rgba(80, 80, 80, 0.278);
-$wave-button-bg: linear-gradient(180deg, #000000a1 0%, #00000041 10%, rgba(255, 255, 255, 0.32) 15%, rgba(255, 255, 255, 0.32) 85%, #00000041 90%, #00000091 100%);
-$wave-button-bg-hover: linear-gradient(180deg, #000000a1 0%, #00000041 10%, rgba(255, 0, 98, 0.801) 15%, rgba(255, 0, 98, 0.801)  85%, #00000041 90%, #00000091 100%);
-$wave-button-border-right: 1px solid rgba(57, 57, 57, 0.505);
-$wave-button-bg-active: linear-gradient(180deg, #000000a1 0%, #00000041 10%, rgba(70, 249, 255, 0.815) 15%, rgba(248, 255, 43, 0.815) 85%, #00000041 90%, #00000091 100%);
-$wave-button-box-shadow: 1px 1px 60px rgb(255, 232, 25);
+$wave-button-bg: $wave-button-bg--blue;
+$wave-button-bg-hover: $wave-button-bg-hover--blue;
+$wave-button-bg-active: $wave-button-bg-active--blue;
+$wave-button-box-shadow: $wave-button-box-shadow--blue;
 
 
 // Synth pad
 $synth-pad-height: 15rem;
 $synth-pad-width: clamp(14rem , calc(6rem + 3vw) , 15rem);
-$synth-pad-border: 2px solid rgba(240, 30, 202, 0.554);
-$synth-pad-bg: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(224,244,155,1) 41%, rgba(82,255,239,1) 100%);
-$synth-pad-box-shadow: 1px 2px 20px rgba(255, 108, 204, 0.731);
+$synth-pad-border: $synth-pad-border--blue;
+$synth-pad-bg: $synth-pad-bg--blue;
+$synth-pad-box-shadow: $synth-pad-box-shadow--blue;

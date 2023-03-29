@@ -1,0 +1,118 @@
+// BLUE THEME COLORS
+$backdrop-gradient-bg--blue: linear-gradient(180deg, #00183e,#322379 0%, #131313 100% );
+
+$grid-container-shadow--blue: 0px 20px 20px #5c069a;
+$grid-block-shadow--blue: 1px 1px 2px #ff0095da;
+
+$console-title-color--blue: #ffb845 ;
+$console-container-shadow--blue: 0px 4px 30px #ff69ffda;
+$box-shadow--blue:  0px 0px 10px #2bfff4;
+$instrument-block-hover--blue: #ff70bc;
+$instrument-block-active-bg--blue: #ff0088;
+$instrument-block-bg-play--blue: rgba(20, 255, 255, 0.734); // animation to be activated
+$instrument-block-bg--blue: #f0f0f0;
+
+$meter-track-bg-color--blue: #262626;
+$meter-track-shadow--blue: 0px 0px 6px #30fcffbc;
+$meter-track-title-text-color--blue: #f4bcff;
+$meter-knob-bg--blue: #2e2e2e;
+$meter-knob-border--blue: 1px solid #54ffe5;
+$meter-knob-box-shadow--blue: 0px 0px 10px #2bfff4;
+
+$meter-grouping-border--blue: 1px solid #0aa4a7b3;
+$meter-grouping-box-shadow--blue: 0px 2px 15px #ff88f3;
+
+$wave-button-bg--blue: linear-gradient(180deg, #000000a1 0%, #00000041 5%, rgba(255, 255, 255, 0.32) 15%, rgba(255, 255, 255, 0.32) 85%, #00000041 95%, #00000091 100%);
+$wave-button-bg-hover--blue: linear-gradient(180deg, #000000a1 0%, #00000041 10%, rgba(255, 0, 98, 0.801) 15%, rgba(255, 0, 98, 0.801)  85%, #00000041 90%, #00000091 100%);
+$wave-button-bg-active--blue: linear-gradient(180deg, #000000a1 0%, #00000041 10%, rgba(70, 249, 255, 0.815) 15%, rgba(248, 255, 43, 0.815) 85%, #00000041 90%, #00000091 100%);
+$wave-button-box-shadow--blue: 1px 1px 60px rgb(255, 232, 25);
+
+$synth-pad-border--blue: 2px solid rgba(240, 30, 202, 0.554);
+$synth-pad-bg--blue: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(224,244,155,1) 41%, rgba(82,255,239,1) 100%);
+$synth-pad-box-shadow--blue: 1px 2px 20px rgba(255, 108, 204, 0.731);
+
+
+
+
+// PURPLE THEME COLORS
+// $backdrop-gradient-bg--purple: linear-gradient(180deg, #2c003e,#2c003e 0%, #131313 100% );
+$backdrop-gradient-bg--purple: linear-gradient(180deg, #2c003e,#322379 0%, #131313 100% );
+
+$grid-container-shadow--purple: 0px 20px 20px #5c069a;
+$grid-block-shadow--purple: 1px 1px 2px #ff0095da;
+
+$console-title-color--purple: #ffb845 ;
+$console-container-shadow--purple: 0px 4px 30px #ff69ffda;
+$box-shadow--purple:  0px 0px 10px #2bfff4;
+$instrument-block-hover--purple: #ff70bc;
+$instrument-block-active-bg--purple: #ff0088;
+$instrument-block-bg-play--purple: rgba(20, 255, 255, 0.734); // animation to be activated
+$instrument-block-bg--purple: #f0f0f0;
+
+$meter-track-bg-color--purple: #262626;
+$meter-track-shadow--purple: 0px 0px 6px #30fcffbc;
+$meter-track-title-text-color--purple: #f4bcff;
+$meter-knob-bg--purple: #2e2e2e;
+$meter-knob-border--purple: 1px solid #54ffe5;
+$meter-knob-box-shadow--purple: 0px 0px 10px #2bfff4;
+
+$meter-grouping-border--purple: 1px solid #0aa4a7b3;
+$meter-grouping-box-shadow--purple: 0px 2px 15px #ff88f3;
+
+$wave-button-bg--purple: linear-gradient(180deg, #000000a1 0%, #00000041 5%, rgba(255, 255, 255, 0.32) 15%, rgba(255, 255, 255, 0.32) 85%, #00000041 95%, #00000091 100%);
+$wave-button-bg-hover--purple: linear-gradient(180deg, #000000a1 0%, #00000041 10%, rgba(255, 0, 98, 0.801) 15%, rgba(255, 0, 98, 0.801)  85%, #00000041 90%, #00000091 100%);
+$wave-button-bg-active--purple: linear-gradient(180deg, #000000a1 0%, #00000041 10%, rgba(70, 249, 255, 0.815) 15%, rgba(248, 255, 43, 0.815) 85%, #00000041 90%, #00000091 100%);
+$wave-button-box-shadow--purple: 1px 1px 60px rgb(255, 232, 25);
+
+$synth-pad-border--purple: 2px solid rgba(240, 30, 202, 0.554);
+$synth-pad-bg--purple: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(224,244,155,1) 41%, rgba(82,255,239,1) 100%);
+$synth-pad-box-shadow--purple: 1px 2px 20px rgba(255, 108, 204, 0.731);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// STARTER THEME COLORS
+$backdrop-gradient-bg--starter: linear-gradient(180deg, #00183e,#322379 0%, #131313 100% );
+
+$grid-container-shadow--starter: 0px 20px 20px #5c069a;
+$grid-block-shadow--starter: 1px 1px 2px #ff0095da;
+
+$console-title-color--starter: #ffb845 ;
+$console-container-shadow--starter: 0px 4px 30px #ff69ffda;
+$box-shadow--starter:  0px 0px 10px #2bfff4;
+$instrument-block-hover--starter: #ff70bc;
+$instrument-block-active-bg--starter: #ff0088;
+$instrument-block-bg-play--starter: rgba(20, 255, 255, 0.734); // animation to be activated
+$instrument-block-bg--starter: #f0f0f0;
+
+$meter-track-bg-color--starter: #262626;
+$meter-track-shadow--starter: 0px 0px 6px #30fcffbc;
+$meter-track-title-text-color--starter: #f4bcff;
+$meter-knob-bg--starter: #2e2e2e;
+$meter-knob-border--starter: 1px solid #54ffe5;
+$meter-knob-box-shadow--starter: 0px 0px 10px #2bfff4;
+
+$meter-grouping-border--starter: 1px solid #0aa4a7b3;
+$meter-grouping-box-shadow--starter: 0px 2px 15px #ff88f3;
+
+$wave-button-bg--starter: linear-gradient(180deg, #000000a1 0%, #00000041 5%, rgba(255, 255, 255, 0.32) 15%, rgba(255, 255, 255, 0.32) 85%, #00000041 95%, #00000091 100%);
+$wave-button-bg-hover--starter: linear-gradient(180deg, #000000a1 0%, #00000041 10%, rgba(255, 0, 98, 0.801) 15%, rgba(255, 0, 98, 0.801)  85%, #00000041 90%, #00000091 100%);
+$wave-button-bg-active--starter: linear-gradient(180deg, #000000a1 0%, #00000041 10%, rgba(70, 249, 255, 0.815) 15%, rgba(248, 255, 43, 0.815) 85%, #00000041 90%, #00000091 100%);
+$wave-button-box-shadow--starter: 1px 1px 60px rgb(255, 232, 25);
+
+$synth-pad-border--starter: 2px solid rgba(240, 30, 202, 0.554);
+$synth-pad-bg--starter: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(224,244,155,1) 41%, rgba(82,255,239,1) 100%);
+$synth-pad-box-shadow--starter: 1px 2px 20px rgba(255, 108, 204, 0.731);
