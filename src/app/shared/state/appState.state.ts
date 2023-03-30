@@ -21,16 +21,16 @@ export interface AppStateModel {
             // decay: { dislayName: 'DEC', value: 0},
             // sustain: { dislayName: 'SUS', value: 0},
             // release:{ dislayName: 'REL', value: 0},
-            ATK: 0,
-            DEC: 0,
-            SUS: 0,
-            REL: 0,
+            ATK: 50,
+            DEC: 50,
+            SUS: 50,
+            REL: 50,
           },
           echoMeterGroup: {
             // time, feedback, max duration
-            TIM: 0,
-            FDB: 0,
-            DUR: 0,
+            TIM: 50,
+            FDB: 50,
+            DUR: 50,
           }
       },
       percussionTrack: {
@@ -54,29 +54,18 @@ export interface AppStateModel {
       ctx: StateContext<AppStateModel>,
       payload: { setting: any }
     ) {
+      const value:number = payload.setting.settingValue;
       const group = payload.setting.groupName
-      const settingName = payload.setting.settingName
-      let stateSynthSettings = ctx.getState().settings;
-      console.log('state');
-      console.log(group);
-      console.log(settingName);
-
-
-      let newSettings = stateSynthSettings;
+      const settingName: string = String(payload.setting.settingName);
+      let newSettings = ctx.getState().settings;
 
       if (group === 'envelope') {
-        // newSettings.envelopeMeterGroup[settingName] = payload.setting.settingValue
-        // console.log(newSettings);
+        newSettings.envelopeMeterGroup[settingName] = value;
       }
 
       if (group === 'echo') {
-        // newSettings.envelopeMeterGroup['settingName'] = payload.setting.settingValue
-        // console.log(newSettings);
-        // newSettings = {...stateSynthSettings, echoMeterGroup: {...stateSynthSettings.echoMeterGroup: payload.setting.settingValue }}
+        newSettings.echoMeterGroup[settingName] = value;
       }
-
-      console.log(newSettings);
-
       ctx.patchState({ settings: newSettings });
     }
 
