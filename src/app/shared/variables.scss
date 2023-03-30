@@ -2,15 +2,15 @@
 
 
 // Backdrop
-$backdrop-gradient-bg: $backdrop-gradient-bg--blue;
+$backdrop-gradient-bg: $backdrop-gradient-bg--standard;
 
 $grid-container-border: 1px solid #414141;
-$grid-container-shadow: $grid-container-shadow--blue;
+$grid-container-shadow: $grid-container-shadow--standard;
 
 // $grid-block-border: 1px solid rgb(50, 238, 255);
 $grid-block-border: 1px solid #181818;
 // $grid-block-shadow: 2px 2px 6px rgba(255, 33, 255, 0.287);
-$grid-block-shadow: $grid-block-shadow--blue;
+$grid-block-shadow: $grid-block-shadow--standard;
 
 // Console
 $console-bg-color: rgba(35, 35, 35, 0.20);
@@ -18,8 +18,9 @@ $console-bg-color: rgba(35, 35, 35, 0.20);
 // $console-bg-color: rgba(208, 208, 208, 0.60);
 // $console-bg-color: rgba(208, 208, 208, 0.34);
 $console-container-border:1px solid #ffffff5e;
-$console-title-color: $console-title-color--blue;
-$console-container-shadow: $console-container-shadow--blue;
+$console-title-color: $console-title-color--standard;
+$console-title-line-gradient: $console-title-line-gradient--standard;
+$console-container-shadow: $console-container-shadow--standard;
 
 
 // Percussion Track
@@ -33,11 +34,11 @@ $instrument-block-measure-border: 1px solid #212121;
 $instrument-block-active-border: 1px solid #ababab41;
 $play-button-width: clamp(1.5rem, calc(1rem + 2vw) , 2.5rem);
 $play-button-height:  clamp(1.5rem, calc(1rem + 2vw) , 2.5rem);
-$instrument-block-bg:$instrument-block-bg--blue;
-$instrument-block-bg-play: $instrument-block-bg-play--blue;
-$instrument-block-hover: $instrument-block-hover--blue;
-$percussion-container-box-shadow: $box-shadow--blue;
-$instrument-block-active-bg: $instrument-block-active-bg--blue;
+$instrument-block-bg:$instrument-block-bg--standard;
+$instrument-block-bg-play: $instrument-block-bg-play--standard;
+$instrument-block-hover: $instrument-block-hover--standard;
+$percussion-container-box-shadow: $box-shadow--standard;
+$instrument-block-active-bg: $instrument-block-active-bg--standard;
 
 
 
@@ -46,19 +47,19 @@ $instrument-block-active-bg: $instrument-block-active-bg--blue;
 // $meter-track-border: 1px solid #2b2b2b3e;
 $meter-track-border: 1px solid #c1000000;
 $meter-track-title-text-shadow: 0px 0px 1px rgba(131, 131, 131, 0.846);
-$meter-track-bg-color: $meter-track-bg-color--blue;
-$meter-track-shadow: $meter-track-shadow--blue;
-$meter-track-title-text-color: $meter-track-title-text-color--blue;
-$meter-knob-bg: $meter-knob-bg--blue;
-$meter-knob-border: $meter-knob-border--blue;
-$meter-knob-box-shadow: $meter-knob-box-shadow--blue;
+$meter-track-bg-color: $meter-track-bg-color--standard;
+$meter-track-shadow: $meter-track-shadow--standard;
+$meter-track-title-text-color: $meter-track-title-text-color--standard;
+$meter-knob-bg: $meter-knob-bg--standard;
+$meter-knob-border: $meter-knob-border--standard;
+$meter-knob-box-shadow: $meter-knob-box-shadow--standard;
 
 // Meter Group
 // $meter-grouping-box-shadow: 0px 2px 15px #65eaffb3;
 $meter-group-border: 1px solid #7b7b7b3f;
 $meter-group-box-shadow: 0px 1px 2px #353535;
-$meter-grouping-border: $meter-grouping-border--blue;
-$meter-grouping-box-shadow: $meter-grouping-box-shadow--blue;
+$meter-grouping-border: $meter-grouping-border--standard;
+$meter-grouping-box-shadow: $meter-grouping-box-shadow--standard;
 
 
 // Waveform select
@@ -67,15 +68,15 @@ $wave-container-border: 1px solid rgba(43, 43, 43, 0.474);
 $wave-button-border-right: 1px solid rgba(57, 57, 57, 0.505);
 $wave-button-text-color: rgb(94, 0, 66);
 $wave-button-text-shadow: 1px 1px 1px rgba(80, 80, 80, 0.278);
-$wave-button-bg: $wave-button-bg--blue;
-$wave-button-bg-hover: $wave-button-bg-hover--blue;
-$wave-button-bg-active: $wave-button-bg-active--blue;
-$wave-button-box-shadow: $wave-button-box-shadow--blue;
+$wave-button-bg: $wave-button-bg--standard;
+$wave-button-bg-hover: $wave-button-bg-hover--standard;
+$wave-button-bg-active: $wave-button-bg-active--standard;
+$wave-button-box-shadow: $wave-button-box-shadow--standard;
 
 
 // Synth pad
 $synth-pad-height: 15rem;
 $synth-pad-width: clamp(14rem , calc(6rem + 3vw) , 15rem);
-$synth-pad-border: $synth-pad-border--blue;
-$synth-pad-bg: $synth-pad-bg--blue;
-$synth-pad-box-shadow: $synth-pad-box-shadow--blue;
+$synth-pad-border: $synth-pad-border--standard;
+$synth-pad-bg: $synth-pad-bg--standard;
+$synth-pad-box-shadow: $synth-pad-box-shadow--standard;
