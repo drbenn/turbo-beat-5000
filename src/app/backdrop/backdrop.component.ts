@@ -24,12 +24,13 @@ export class BackdropComponent implements OnInit{
 
 
   ngOnInit(): void {
-    for (let i = 0; i < 250; i++) {
-      const size = String(0.1 + Math.round(Math.random() * 1))
+    for (let i = 0; i < 500; i++) {
+      const size = String(0.1 + Math.round(Math.random() * .55))
       const top = String(Math.round(Math.random() * 100))
       const left = String(Math.round(Math.random() * 100))
       const scale = String(0.5 + (Math.round(Math.random()) * 0.5))
-      const background =  'linear-gradient(168deg, #58b580 0%, #a67be0 50%, #6624c0 100%)'
+      // const background =  'linear-gradient(168deg, #58b580 0%, #a67be0 50%, #6624c0 100%)'
+      const background =  'radial-gradient(circle, #ffffff7b 0%, #ffffff7d 10%, #ff179a63 55%, #1774ff70 80%, #fb00ff7b 100% )'
       // console.log(top);
       // console.log(left);
       let selectedAnimation:string;
@@ -44,11 +45,14 @@ export class BackdropComponent implements OnInit{
       if (i % 3 === 0) {
         selectedAnimation = 'part-anim-3'
       }
+      if (i % 4 === 0) {
+        selectedAnimation = 'part-anim-4'
+      }
 
 
 
 
-      this.movingParts.push(`width: ${size}rem; height: ${size}rem; background: ${background}; border: 2px solid #FFD1F37C; border-radius: 15px; bpx-shadow: 2px 2px 5px #FFFFFF; font-size: 1.5rem; color: grey; position: absolute; z-index: -5; top:${top}%; left: ${left}%; animation: ${selectedAnimation} 60s linear infinite`)
+      this.movingParts.push(`width: ${size}rem; height: ${size}rem; background: ${background}; border: 0px solid #FFD1F37C; border-radius: 10rem; bpx-shadow: 2px 2px 5px #FFFFFF; font-size: 1.5rem; color: grey; position: absolute; z-index: -5; top:${top}%; left: ${left}%; animation: ${selectedAnimation} 60s linear infinite`)
     }
   }
 
