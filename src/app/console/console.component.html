@@ -23,16 +23,26 @@
 
 
 <div class="synth-components-container">
+
+
+  <div class="synth-controls-container">
+    <div class="synth-controls-group">
+      <app-waveform-select></app-waveform-select>
+      <app-synth-meters></app-synth-meters>
+
+    </div>
+
+    <div class="placeholder">
+      <div class="viz-block" *ngFor="let viz of visuals" [style]="viz"></div>
+    </div>
+
+  </div>
+<button (click)="click()">clci</button>
+
+
   <div class="synth-pad-console-container">
     <app-synth-pad></app-synth-pad>
   </div>
-
-  <div class="synth-controls-container">
-    <app-waveform-select></app-waveform-select>
-    <app-synth-meters></app-synth-meters>
-
-  </div>
-
 
 
 </div>

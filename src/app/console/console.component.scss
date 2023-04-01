@@ -19,7 +19,7 @@
   backdrop-filter: blur(6px) saturate(200%);
   -webkit-backdrop-filter: blur( 20px );
   -webkit-backdrop-filter: blur(16px) saturate(200%);
-  background-color: $console-bg-color;
+  background: $console-bg-color;
   border-radius: 2px;
   border: $console-container-border;
   box-shadow: $console-container-shadow;
@@ -123,26 +123,54 @@
 .synth-components-container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   width: 90%;
   // border: #58b580 1px solid;
   // margin-top: 1rem;
 }
 
-.synth-pad-console-container {
-  margin: 0.5rem;
-}
-
-.synth-controls-container {
+.synth-controls-group {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+}
+
+.synth-controls-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-end;
   justify-content: center;
   // border: $meter-grouping-border;
   // box-shadow: $meter-grouping-box-shadow;
   margin: 0.5rem;
   margin-top: 1.7rem;
 }
+
+.placeholder {
+  height: 7rem;
+  width: 14rem;
+  // border: 3px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly ;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.viz-block {
+  height: 2rem;
+  width: 2rem;
+  // border: 1px solid blue;
+}
+
+.synth-pad-console-container {
+  margin: 0.5rem;
+}
+

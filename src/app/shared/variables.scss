@@ -13,10 +13,12 @@ $grid-block-border: 1px solid #181818;
 $grid-block-shadow: $grid-block-shadow--standard;
 
 // Console
-$console-bg-color: rgba(35, 35, 35, 0.20);
 // $console-bg-color: rgba(10, 10, 10, 0.20);
 // $console-bg-color: rgba(208, 208, 208, 0.60);
 // $console-bg-color: rgba(208, 208, 208, 0.34);
+// $console-bg-color: rgba(35, 35, 35, 0.63);
+$console-bg-color: linear-gradient(120deg, rgba(33, 33, 33, 0.813) 0%, rgba(33, 13, 20, 0.707) 100%);
+
 $console-container-border:1px solid #ffffff5e;
 $console-title-color: $console-title-color--standard;
 $console-title-line-gradient: $console-title-line-gradient--standard;

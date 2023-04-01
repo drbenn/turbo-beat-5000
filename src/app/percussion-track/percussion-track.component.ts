@@ -273,6 +273,7 @@ startTimeOsc() {
   }
   this.isStarted = true;
   this.isPlaying = true;
+  this.store.dispatch(new PercussionPlaying(this.isPlaying))
   //     // setInterval()
 //     if (typeof window !== 'undefined'){
 //       this.intervalId = window.setInterval(() => {
@@ -300,6 +301,7 @@ checkContextTime() {
 
 stop() {
   this.isPlaying = false;
+  this.store.dispatch(new PercussionPlaying(this.isPlaying))
   // reset beatIndex to 0 so that when restarts plays first note & makes animiation over bars uniform/always from start
 }
 

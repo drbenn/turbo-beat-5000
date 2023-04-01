@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext, Store } from "@ngxs/store";
 import { PercussionPlaying, UpdatePercussionTrack, UpdateSynthSetting, UpdateWaveform } from "./appState.actions";
+import { log } from 'console';
 
 export interface AppStateModel {
     percussionPlaying: boolean;
@@ -74,6 +75,8 @@ export interface AppStateModel {
       ctx: StateContext<AppStateModel>,
       payload: { isPlaying: boolean }
     ) {
+      console.log(payload.isPlaying);
+
       ctx.patchState({ percussionPlaying: payload.isPlaying });
     }
 

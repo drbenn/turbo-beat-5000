@@ -8,9 +8,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { AppState } from './shared/state/appState.state';
 import { PercussionTrackComponent } from './percussion-track/percussion-track.component';
 import { BackdropComponent } from './backdrop/backdrop.component';
-import { SliderMeterComponent } from './slider-meter/slider-meter.component';
 import { ConsoleComponent } from './console/console.component';
-import { MeterComponent } from './meter/meter.component';
 import { SynthMetersComponent } from './synth-meters/synth-meters.component';
 import { SynthPadComponent } from './synth-pad/synth-pad.component';
 import { WaveformSelectComponent } from './waveform-select/waveform-select.component';
@@ -21,9 +19,7 @@ import { PlayAnimationComponent } from './play-animation/play-animation.componen
     AppComponent,
     PercussionTrackComponent,
     BackdropComponent,
-    SliderMeterComponent,
     ConsoleComponent,
-    MeterComponent,
     SynthMetersComponent,
     SynthPadComponent,
     WaveformSelectComponent,
