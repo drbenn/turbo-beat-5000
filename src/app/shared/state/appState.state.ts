@@ -75,9 +75,7 @@ export interface AppStateModel {
       ctx: StateContext<AppStateModel>,
       payload: { isPlaying: boolean }
     ) {
-      console.log(payload.isPlaying);
-
-      ctx.patchState({ percussionPlaying: payload.isPlaying });
+       ctx.patchState({ percussionPlaying: payload.isPlaying });
     }
 
     @Action(UpdateWaveform)
@@ -93,13 +91,7 @@ export interface AppStateModel {
       ctx: StateContext<AppStateModel>,
       payload: { newBeat: any }
     ) {
-      console.log('in update perc');
-      console.log(payload.newBeat);
-
-      let newBeat;
-
       ctx.patchState({ percussionTrack: payload.newBeat});
     }
 
-
-    }
+  }

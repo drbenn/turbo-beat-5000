@@ -4,11 +4,13 @@
 // Backdrop
 $backdrop-gradient-bg: $backdrop-gradient-bg--standard;
 
+$artifact-bg: $artifact-bg--standard;
+
 $grid-container-border: 1px solid #414141;
 $grid-container-shadow: $grid-container-shadow--standard;
 
 // $grid-block-border: 1px solid rgb(50, 238, 255);
-$grid-block-border: 1px solid #181818;
+$grid-block-border: $grid-block-border--standard;
 // $grid-block-shadow: 2px 2px 6px rgba(255, 33, 255, 0.287);
 $grid-block-shadow: $grid-block-shadow--standard;
 
@@ -26,7 +28,7 @@ $console-container-shadow: $console-container-shadow--standard;
 
 
 // Percussion Track
-$percussion-container-border: 2px solid #80808054;
+$percussion-container-border: 1px solid #4e4e4e54;
 $percussion-container-text-color:#ffffff;
 $percussion-container-bg:linear-gradient(20deg,  #202020, #151515 );
 $instrument-block-height: clamp(1.2rem, calc(0.2rem + 3vw),2rem);

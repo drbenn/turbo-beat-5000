@@ -22,8 +22,6 @@ export class ConsoleComponent implements OnInit {
   ngOnInit(): void {
     this.beatPlaying$.subscribe((beat) => {
       this.isBeat = beat;
-      console.log(this.isBeat);
-
     })
 
     this.getRandomColorArray('visuals')
@@ -33,7 +31,6 @@ export class ConsoleComponent implements OnInit {
     this.getRandomColorArray('visualsFour')
     this.getRandomColorArray('visualsFive')
 
-      console.log(this.visuals);
       if (typeof window !== 'undefined'){
         window.setInterval(() => this.click(), 1); // time called at ongoing interal, thus this.count +=1 to accumulate change of time
       }

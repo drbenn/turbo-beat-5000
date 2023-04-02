@@ -24,7 +24,7 @@ export class BackdropComponent implements OnInit{
 
 
   ngOnInit(): void {
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < 200; i++) {
       const size = String(0.1 + (Math.round(Math.random() -0.2) * 0.3))
       const top = String(Math.round(Math.random() * 100))
       const left = String(Math.round(Math.random() * 100))
