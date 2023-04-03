@@ -23,7 +23,7 @@
   text-shadow: $wave-button-text-shadow;
   font-size: 0.65rem;
   background: $wave-button-bg;
-  transition: 100ms ease-in;
+  transition: 50ms ease-in;
 }
 
 .wave-button:nth-child(-n + 3) {
@@ -32,7 +32,7 @@
 
 .wave-button:hover {
   background: $wave-button-bg-hover;
-  transition: 100ms ease-in;
+  transition: 50ms ease-in;
 }
 
 .wave-button-active {
@@ -45,6 +45,6 @@
   text-shadow: $wave-button-text-shadow;
   font-size: 0.65rem;
   background: $wave-button-bg-active;
-  transition: 100ms ease-in;
+  transition: 50ms ease-in;
   box-shadow: $wave-button-box-shadow;
 }

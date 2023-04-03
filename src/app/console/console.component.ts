@@ -32,13 +32,13 @@ export class ConsoleComponent implements OnInit {
     this.getRandomColorArray('visualsFive')
 
       if (typeof window !== 'undefined'){
-        window.setInterval(() => this.click(), 1); // time called at ongoing interal, thus this.count +=1 to accumulate change of time
+        window.setInterval(() => this.click(), 1);
       }
 
   }
 
   getRandomColorArray(arrayName:string) {
-    for ( let i = 0 ; i < 5 ; i++ ) {
+    for ( let i = 0 ; i < 8 ; i++ ) {
       let color:string;
       let randomNum: number = Math.random()
       if (randomNum > 0 ) {

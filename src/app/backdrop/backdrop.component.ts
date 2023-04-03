@@ -25,7 +25,7 @@ export class BackdropComponent implements OnInit{
 
   ngOnInit(): void {
     for (let i = 0; i < 200; i++) {
-      const size = String(0.1 + (Math.round(Math.random() -0.2) * 0.3))
+      const size = String(0.1 + (Math.round(Math.random() -0.2) * 0.4))
       const top = String(Math.round(Math.random() * 100))
       const left = String(Math.round(Math.random() * 100))
       const scale = String(0.5 + (Math.round(Math.random()) * 0.5))
@@ -52,7 +52,7 @@ export class BackdropComponent implements OnInit{
 
 
 
-      this.movingParts.push(`width: ${size}rem; height: ${size}rem; background: ${background}; border: 0px solid #FFD1F37C; border-radius: 10rem; bpx-shadow: 2px 2px 5px #FFFFFF; font-size: 1.5rem; color: grey; position: absolute; z-index: -5; top:${top}%; left: ${left}%; animation: ${selectedAnimation} 45s linear infinite`)
+      this.movingParts.push(`width: ${size}rem; height: ${size}rem; background: ${background}; border: 0px solid #FFD1F37C; border-radius: 10rem; bpx-shadow: 2px 2px 5px #FFFFFF; font-size: 1.5rem; color: grey; position: absolute; z-index: -5; top:${top}%; left: ${left}%; animation: ${selectedAnimation} 35s linear infinite`)
     }
   }
 

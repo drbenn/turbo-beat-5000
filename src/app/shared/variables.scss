@@ -15,12 +15,7 @@ $grid-block-border: $grid-block-border--standard;
 $grid-block-shadow: $grid-block-shadow--standard;
 
 // Console
-// $console-bg-color: rgba(10, 10, 10, 0.20);
-// $console-bg-color: rgba(208, 208, 208, 0.60);
-// $console-bg-color: rgba(208, 208, 208, 0.34);
-// $console-bg-color: rgba(35, 35, 35, 0.63);
-$console-bg-color: linear-gradient(120deg, rgba(33, 33, 33, 0.813) 0%, rgba(33, 13, 20, 0.707) 100%);
-
+$console-bg-color: $console-bg--standard;
 $console-container-border:1px solid #ffffff5e;
 $console-title-color: $console-title-color--standard;
 $console-title-line-gradient: $console-title-line-gradient--standard;
@@ -70,7 +65,7 @@ $meter-grouping-box-shadow: $meter-grouping-box-shadow--standard;
 $wave-container-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.409);
 $wave-container-border: 1px solid rgba(43, 43, 43, 0.474);
 $wave-button-border-right: 1px solid rgba(57, 57, 57, 0.505);
-$wave-button-text-color: rgb(94, 0, 66);
+$wave-button-text-color: rgb(27, 27, 27);
 $wave-button-text-shadow: 1px 1px 1px rgba(80, 80, 80, 0.278);
 $wave-button-bg: $wave-button-bg--standard;
 $wave-button-bg-hover: $wave-button-bg-hover--standard;

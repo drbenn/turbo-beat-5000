@@ -11,7 +11,7 @@
   border: $synth-pad-border;
   background: $synth-pad-bg;
   box-shadow: $synth-pad-box-shadow;
-  cursor:zoom-in;
+  cursor: crosshair;
 }
 
 .synth-pad-container-no-cursor {
@@ -45,7 +45,7 @@
   z-index: 100;
   transition-duration: 200ms;
   transition-timing-function: ease-out;
-  animation: cursorAnim 50ms infinite alternate;
+  animation: cursorAnim 3s infinite alternate;
   pointer-events: none;
   cursor: none;
 }
@@ -65,21 +65,46 @@
 
 @keyframes cursorAnim {
   0% {
-    transform: scale(2) skew(30deg, 20deg);
-    background-color: rgb(255, 0, 162);
+    // transform: scale(1.4) skew(30deg, 20deg);
+    transform: scale(4);
+    // background-color: rgb(255, 108, 201);
+    background: linear-gradient(125deg, rgb(255, 255, 255) 0%, rgb(255, 108, 201)100%);
     border: 0px solid gray;
     border-radius: 50%;
   }
+
+  20% {
+    // transform: scale(1.5) skew(-30deg, 20deg) rotate(55deg);
+    transform: scale(6);
+    // background-color: rgb(255, 206, 107);
+    background: linear-gradient(12deg, rgb(255, 255, 255) 0%, rgb(255, 206, 107) 100%);
+    border: 0px solid gray;
+    border-radius: 50%;
+  }
+
   50% {
-    transform: scale(1) skew(-30deg, 20deg);
-    background-color: rgb(0, 242, 255);
+    // transform: scale(1) skew(80deg, 60deg) rotate(15deg);
+    transform: scale(2);
+    // background-color: rgb(59, 102, 255);
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(97, 197, 255) 100%);
+    border: 0px solid gray;
+    border-radius: 50%;
+  }
+
+  75% {
+    // transform: scale(1) skew(60deg, 55deg) rotate(-5deg);
+    transform: scale(20);
+    // background-color: rgb(255, 173, 90);
+    background: linear-gradient(-30deg, rgb(255, 255, 255) 0%, rgb(255, 173, 90) 100%);
     border: 0px solid gray;
     border-radius: 50%;
   }
 
   100% {
-    transform: scale(4) skew(30deg, -20deg);
-    background-color: rgb(255, 158, 54);
+    // transform: scale(4) skew(30deg, -20deg);
+    transform: scale(4);
+    // background-color: rgb(206, 108, 255);
+    background: linear-gradient(125deg, rgb(255, 255, 255) 0%, rgb(206, 108, 255) 100%);
     border: 0px solid rgb(98, 206, 249);
     border-radius: 50%;
   }

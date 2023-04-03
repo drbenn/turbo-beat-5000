@@ -44,6 +44,39 @@
   border: 2px solid rgba(119, 235, 229, 0.582);
   border-radius: 3px;
   box-shadow: 0px 0px 1px rgb(0, 0, 0);
+  transition: 50ms;
+
+  img {
+    width: 100%;
+  }
+}
+
+.play-button:hover {
+  width: $play-button-width;
+  height: $play-button-height;
+  padding: 0rem 0.4rem 0rem 0.5rem;
+  background-color: #a13abbbb;
+  margin: 0rem 0.6rem;
+  border: 2px solid rgba(119, 235, 229, 0.582);
+  border-radius: 3px;
+  box-shadow: 0px 0px 1px rgb(0, 0, 0);
+  transition: 50ms;
+
+  img {
+    width: 100%;
+  }
+}
+
+.play-button-on {
+  width: $play-button-width;
+  height: $play-button-height;
+  padding: 0rem 0.4rem 0rem 0.5rem;
+  background: linear-gradient(180deg, rgba(70, 249, 255, 0.815) 0%, #ff69ffda 100%);
+  margin: 0rem 0.6rem;
+  border: 2px solid rgba(80, 159, 155, 0.582);
+  border-radius: 3px;
+  box-shadow: 0px 0px 1px rgb(0, 0, 0);
+  transition: 50ms;
 
   img {
     width: 100%;
@@ -59,6 +92,24 @@
   border: 2px solid rgba(119, 235, 229, 0.582);
   border-radius: 3px;
   box-shadow: 0px 0px 1px rgb(0, 0, 0);
+  transition: 50ms;
+
+  img {
+    width: 100%;
+
+  }
+}
+
+.stop-button:hover {
+  width: $play-button-width;
+  height: $play-button-height;
+  padding: 0rem 0.5rem;
+  background-color: #a13abbbb;
+  margin: 0rem 0.6rem;
+  border: 2px solid rgba(119, 235, 229, 0.582);
+  border-radius: 3px;
+  box-shadow: 0px 0px 1px rgb(0, 0, 0);
+  transition: 50ms;
 
   img {
     width: 100%;
@@ -105,6 +156,15 @@
   // animation: playing-block 1s ease-in-out infinite;
 }
 
+// .instrument-row-block-changing {
+//   height: $instrument-block-height;
+//   width: $instrument-block-width;
+//   border: $instrument-block-border;
+//   background-color: $instrument-block-bg;
+//   color: red;
+//   transition: 100ms;
+// }
+
 @keyframes playing-block {
   0% {
     background-color: $instrument-block-bg;
@@ -119,13 +179,13 @@
 
 }
 
-// .instrument-row-block:nth-child(4n + 1) {
-//   border-right: $instrument-block-measure-border;
-// }
+.instrument-row-block:nth-child(4n + 1) {
+  border-right: $instrument-block-measure-border;
+}
 
-// .if-fourth:nth-child(4n + 1) {
-//   border-right: $instrument-block-measure-border;
-// }
+.if-fourth:nth-child(4n + 1) {
+  border-right: $instrument-block-measure-border;
+}
 
 .instrument-row-block:hover {
   background-color: $instrument-block-hover;

@@ -9,6 +9,13 @@ $grid-container-shadow--standard: 0px 20px 20px #5c069a;
 $grid-block-shadow--standard: -1px -1px 4px #21c8ff81;
 $grid-block-border--standard: 0.1rem solid #ff23b6;
 
+
+// $console-bg-color: rgba(10, 10, 10, 0.20);
+// $console-bg-color: rgba(208, 208, 208, 0.60);
+// $console-bg-color: rgba(208, 208, 208, 0.34);
+// $console-bg-color: rgba(35, 35, 35, 0.63);
+// $console-bg--standard: linear-gradient(120deg, rgba(33, 33, 33, 0.813) 0%, rgba(33, 13, 20, 0.707) 100%);
+$console-bg--standard: linear-gradient(120deg, rgb(25, 25, 25) 0%, rgba(74, 74, 74, 0.369) 100%);
 $console-title-color--standard: #ff31ad ;
 $console-title-line-gradient--standard: linear-gradient(168deg, #2bfff4 0%, #a67be0 50%, #6624c0 100%);
 $console-container-shadow--standard: 0px 4px 30px #ff69ffda;
@@ -28,13 +35,13 @@ $meter-knob-box-shadow--standard: 0px 0px 10px #ff69ffda;
 $meter-grouping-border--standard: 1px solid #4e4e4e54;
 $meter-grouping-box-shadow--standard:  0px 0px 6px #ff69ffda;
 
-$wave-button-bg--standard: linear-gradient(180deg, #000000a1 0%, #00000041 5%, rgba(255, 255, 255, 0.32) 15%, rgba(255, 255, 255, 0.32) 85%, #00000041 95%, #00000091 100%);
-$wave-button-bg-hover--standard: linear-gradient(180deg, #000000a1 0%, #00000041 10%, rgba(255, 0, 98, 0.801) 15%, rgba(255, 0, 98, 0.801)  85%, #00000041 90%, #00000091 100%);
-$wave-button-bg-active--standard: linear-gradient(180deg, #000000a1 0%, #00000041 10%, rgba(70, 249, 255, 0.815) 15%, rgba(248, 255, 43, 0.815) 85%, #00000041 90%, #00000091 100%);
+$wave-button-bg--standard: linear-gradient(180deg, #000000a1 0%, #00000041 2%, rgba(255, 255, 255, 0.32) 15%, rgba(255, 255, 255, 0.32) 85%, #00000041 98%, #00000091 100%);
+$wave-button-bg-hover--standard: linear-gradient(180deg, #000000a1 0%, #00000041 2%, rgba(255, 164, 199, 0.801) 15%, rgba(255, 93, 155, 0.801)  85%, #00000041 98%, #00000091 100%);
+$wave-button-bg-active--standard: linear-gradient(180deg, #000000a1 0%, #00000041 2%, rgba(70, 249, 255, 0.815) 15%, #ff69ffda 85%, #00000041 98%, #00000091 100%);
 $wave-button-box-shadow--standard: 1px 1px 60px rgb(255, 232, 25);
 
-$synth-pad-border--standard: 2px solid rgba(240, 30, 202, 0.554);
-$synth-pad-bg--standard: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(224,244,155,1) 41%, rgba(82,255,239,1) 100%);
+$synth-pad-border--standard: 2px solid #f01ec956;
+$synth-pad-bg--standard: radial-gradient(circle, #f1e0ff 0%, rgba(255,255,255,1) 10%, #ecd4ff 60%, #e96bff 100%);
 $synth-pad-box-shadow--standard: 1px 2px 20px rgba(255, 108, 204, 0.731);
 
 
@@ -63,6 +70,7 @@ $grid-container-shadow--blue: 0px 20px 20px #5c069a;
 $grid-block-shadow--blue: 1px 1px 2px #ff0095da;
 $grid-block-border--blue: 1px solid #181818;
 
+$console-bg--blue: linear-gradient(120deg, rgba(33, 33, 33, 0.813) 0%, rgba(33, 13, 20, 0.707) 100%);
 $console-title-color--blue: #ff45cd ;
 $console-title-line-gradient--blue: linear-gradient(168deg, #58b580 0%, #a67be0 50%, #6624c0 100%);
 $console-container-shadow--blue: 0px 4px 30px #ff69ffda;
@@ -103,6 +111,7 @@ $grid-container-shadow--purple: 0px 20px 20px #5c069a;
 $grid-block-shadow--purple: 1px 1px 2px #ff0095da;
 $grid-block-border--purple: 1px solid #181818;
 
+$console-bg--purple: linear-gradient(120deg, rgba(33, 33, 33, 0.813) 0%, rgba(33, 13, 20, 0.707) 100%);
 $console-title-color--purple: #ffb845 ;
 $console-title-line-gradient--purple: linear-gradient(168deg, #58b580 0%, #a67be0 50%, #6624c0 100%);
 $console-container-shadow--purple: 0px 4px 30px #ff69ffda;

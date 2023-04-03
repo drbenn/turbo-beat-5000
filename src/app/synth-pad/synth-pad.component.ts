@@ -45,8 +45,8 @@ export class SynthPadComponent implements OnInit {
 
     // console.log(this.synthBounds);
 
-    this.top=($event.clientY - this.synthBounds.volumeRange +10 )+ "px";
-    this.left= ($event.clientX - this.synthBounds.pitchRange + 25 )+ "px";
+    this.top=($event.clientY - this.synthBounds.volumeRange + 75 )+ "px";
+    this.left= ($event.clientX - this.synthBounds.pitchRange + 35 )+ "px";
  }
 
   // Volume & pitch factors are 0-1 values to assess and calculate bottom/top range of each using the synthpad

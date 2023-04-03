@@ -9,7 +9,9 @@
     <button (click)="go('snare')">Snare</button>
     <button (click)="go('hat')">Hat</button> -->
     <div class="play-button-group">
-      <div class="play-button" (click)="startTimeOsc()">
+      <div class="play-button"
+      [ngClass]="isPlaying ? 'play-button-on' : 'play-button'"
+      (click)="startTimeOsc()">
         <img src="../../assets/image/icons8-play-100.png" alt="">
       </div>
       <div class="stop-button" (click)="stop()">
