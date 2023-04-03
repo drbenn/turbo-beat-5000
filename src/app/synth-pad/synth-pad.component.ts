@@ -2,6 +2,7 @@ import { AfterViewChecked, AfterViewInit, Component, ElementRef, HostListener, O
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { SynthPadBounds } from '../shared/models';
+import { log } from 'console';
 
 @Component({
   selector: 'app-synth-pad',
@@ -37,16 +38,9 @@ export class SynthPadComponent implements OnInit {
 
   @HostListener('document:mousemove', ['$event'])
   onMousemove($event) {
-    // console.log($event);
-
-    // this.top=($event.pageY - 10)+ "px";
-    // this.left= ($event.pageX - 10)+ "px";
-    // console.log($event);
-
-    // console.log(this.synthBounds);
-
-    this.top=($event.clientY - this.synthBounds.volumeRange + 75 )+ "px";
-    this.left= ($event.clientX - this.synthBounds.pitchRange + 35 )+ "px";
+    this.getSynthPadBounds()
+    this.top=($event.layerY ) + "px";
+    this.left= ($event.layerX ) + "px";
  }
 
   // Volume & pitch factors are 0-1 values to assess and calculate bottom/top range of each using the synthpad
@@ -184,6 +178,8 @@ export class SynthPadComponent implements OnInit {
 
 
   getSynthPadBounds() {
+
+
     const bounds = this.synthElement.nativeElement.getBoundingClientRect();
     this.synthBounds = {
       top: bounds.top ,
@@ -196,6 +192,8 @@ export class SynthPadComponent implements OnInit {
   }
 
   getMouseCoordinates(event) {
+    // console.log(event);
+
     this.mouseX = event.clientX;
     this.mouseY = event.clientY;
     this.volumeFactor = (this.mouseX - this.synthBounds.left) / this.synthBounds.volumeRange

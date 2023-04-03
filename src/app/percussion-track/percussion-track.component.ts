@@ -41,7 +41,7 @@ export class PercussionTrackComponent implements OnInit {
   isPlaying = false;      // Are we currently playing?
   startTime;              // The start time of the entire sequence.
   current16thNote;        // What note is currently last scheduled?
-  tempo = 120.0;          // tempo (in beats per minute)
+  // tempo = 240.0;          // tempo (in beats per minute)
   lookahead = 25.0;       // How frequently to call scheduling function
                               //(in milliseconds)
   scheduleAheadTime = 0.1;    // How far ahead to schedule audio (sec)
@@ -187,7 +187,7 @@ beatIndex = 0;
 
   scheduler() {
     if (this.isPlaying) {
-      let bpm = 444;
+      let bpm = 460;
       let bps = 60/bpm;
       // const quarterNotesInObject:number  = 16;
       // const quarterNotesPerSecond = bpm/60

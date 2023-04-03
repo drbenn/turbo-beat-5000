@@ -15,8 +15,8 @@
 }
 
 .synth-pad-container-no-cursor {
-  height: 15rem;
-  width: 15rem;
+  height: $synth-pad-height;
+  width: $synth-pad-width;
   border-radius: 4px;
   // margin: 2rem; // DO NOT add margin, this will affect div boundingRect
   border: $synth-pad-border;
