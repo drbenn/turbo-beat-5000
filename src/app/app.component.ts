@@ -32,8 +32,7 @@ import { UpdateVisualSetting } from './shared/state/appState.actions';
   ]
 })
 
-// https://www.youtube.com/watch?v=uasGsHf7UYA&t=371s
-// https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
+
 export class AppComponent implements OnInit {
   settingsOpen: boolean = false;
   isBackdropOn: boolean = true;

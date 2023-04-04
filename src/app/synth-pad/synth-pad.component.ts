@@ -9,6 +9,9 @@ import { log } from 'console';
   templateUrl: './synth-pad.component.html',
   styleUrls: ['./synth-pad.component.scss']
 })
+
+// https://www.youtube.com/watch?v=uasGsHf7UYA&t=371s
+// https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
 export class SynthPadComponent implements OnInit {
   @Select(state => state.appState.selectedWaveform) waveform$:Observable<string>;
   // waveform$: Observable<string> = this.store.select((state) => state.appState.waveform)
@@ -20,6 +23,7 @@ export class SynthPadComponent implements OnInit {
   isCursorAnimated: boolean = false;
   top:any;
   left:any;
+  isSynthPlaying: boolean = false;
   expand=false;
   hideCursor=false;
   animateCursor=false;
@@ -72,12 +76,7 @@ export class SynthPadComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // console.log(this.top);
-    // console.log(this.left);
-
-
     this.getSynthPadBounds();
-
     this.waveform$.subscribe((wave) => {
       switch(wave) {
         case 'SIN':
@@ -103,9 +102,9 @@ export class SynthPadComponent implements OnInit {
     // console.log(event);
 
     // this.frequency = event.target?.value;
-    let pitchLimits: number[] = [ 20, 1200];
+    let pitchLimits: number[] = [ 16.35, 1567.98]; // c0 up to g6
     this.frequency = pitchLimits[0] + ((pitchLimits[1] - pitchLimits[0]) * this.pitchFactor)
-    console.log(this.frequency);
+    // console.log(this.frequency);
 
     this.oscBank[0] = this.createOscillator(this.frequency, 0);
     this.oscBank[1] = this.createOscillator(this.frequency, -this.unisonWidth);
@@ -124,23 +123,23 @@ export class SynthPadComponent implements OnInit {
 
     const osc = actx.createOscillator();
 
-    if (this.isDelay) {
-      osc.connect(actx.destination);
-      const delayNode = actx.createDelay();
-      delayNode.delayTime.value = this.echo.time * this.echo.maxDuration;
-      delayNode.connect(actx.destination)
+    // if (this.isDelay) {
+    //   osc.connect(actx.destination);
+    //   const delayNode = actx.createDelay();
+    //   delayNode.delayTime.value = this.echo.time * this.echo.maxDuration;
+    //   delayNode.connect(actx.destination)
 
-      // for repeating echos
-      const echoGainNode = actx.createGain();
-      echoGainNode.gain.value = this.echo.feedback;
+    //   // for repeating echos
+    //   const echoGainNode = actx.createGain();
+    //   echoGainNode.gain.value = this.echo.feedback;
 
-      osc.connect(echoGainNode);
-      delayNode.connect(echoGainNode)
-      echoGainNode.connect(delayNode)
-    }
+    //   osc.connect(echoGainNode);
+    //   delayNode.connect(echoGainNode)
+    //   echoGainNode.connect(delayNode)
+    // }
 
 
-    osc.connect(gainNode)
+    // osc.connect(gainNode)
 
     // ATTACK -> DECAY -> SUSTAIN
     const now = actx.currentTime;
@@ -163,7 +162,6 @@ export class SynthPadComponent implements OnInit {
 
   }
 
-  isSynthPlaying: boolean = false;
   activateSynth() {
     this.isSynthPlaying = true;
   }
@@ -172,14 +170,7 @@ export class SynthPadComponent implements OnInit {
     this.isSynthPlaying = false;
   }
 
-
-
-
-
-
   getSynthPadBounds() {
-
-
     const bounds = this.synthElement.nativeElement.getBoundingClientRect();
     this.synthBounds = {
       top: bounds.top ,
@@ -192,30 +183,25 @@ export class SynthPadComponent implements OnInit {
   }
 
   getMouseCoordinates(event) {
-    // console.log(event);
+    console.log(event);
 
     this.mouseX = event.clientX;
     this.mouseY = event.clientY;
     this.volumeFactor = (this.mouseX - this.synthBounds.left) / this.synthBounds.volumeRange
     this.pitchFactor = 1 - (this.mouseY - this.synthBounds.top) / this.synthBounds.pitchRange
     if (this.isSynthPlaying) {
-      let blank:Event;
-      this.playOscillators()
-
-
+      this.playOscillators();
     }
   }
 
 
   activateCursorAnimation() {
-    console.log('mouse cursor activate');
+    // console.log('mouse cursor activate');
     this.isCursorAnimated = true;
   }
 
   deactivateCursorAnimation() {
-    console.log('mouse cursor deactivate');
+    // console.log('mouse cursor deactivate');
     this.isCursorAnimated = false;
-
   }
-
 }

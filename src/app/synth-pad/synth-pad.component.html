@@ -20,6 +20,11 @@
   (mouseleave)="deactivateSynth(); deactivateCursorAnimation()"
   (mouseenter)="getSynthPadBounds()"
   (mousemove)="getMouseCoordinates($event)"
+  (click)="activateSynth();
+           activateCursorAnimation();
+           getMouseCoordinates($event);
+           deactivateSynth();
+           deactivateCursorAnimation() "
   [ngClass]="{'synth-pad-container-no-cursor':isCursorAnimated}"
   >
 
