@@ -19,7 +19,7 @@
 
 .cool-artifact {
   height: 60vh;
-  width: 25%;
+  width: clamp(12rem, calc(10rem + 8vw), 22rem);
   // background-color: rgb(255, 40, 105);
   background: $artifact-bg;
   border-right: 2px solid #292929;
@@ -29,7 +29,7 @@
 }
 
 .moving-parts-container {
-  height: 65vh;
+  height: 100vh;
   width: 100%;
   // background-color: rgba(255, 0, 0, 0.253);
   // border: 5px solid red;

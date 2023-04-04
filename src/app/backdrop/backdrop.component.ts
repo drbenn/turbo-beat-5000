@@ -44,7 +44,7 @@ export class BackdropComponent implements OnInit{
             this.visualSettings = settings;
 
     })
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 250; i++) {
       const size = String(0.1 + (Math.round(Math.random() -0.2) * 0.4))
       const top = String(Math.round(Math.random() * 100))
       const left = String(Math.round(Math.random() * 100))
