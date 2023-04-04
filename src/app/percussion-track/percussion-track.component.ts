@@ -63,6 +63,8 @@ export class PercussionTrackComponent implements OnInit {
   ngOnInit(): void {
     this.percussionTrack$.subscribe((track: any) => {
       this.percussionTrack = track;
+      console.log(track);
+
     })
     this.timeOsc = this.timeAudioContext.createOscillator();
   }
@@ -81,6 +83,9 @@ export class PercussionTrackComponent implements OnInit {
     if (name === 'highHat') {
       newBeat.highHat[i] = !newBeat.highHat[i]
     }
+
+    console.log(newBeat);
+    this.percussionTrack = newBeat;
     this.store.dispatch(new UpdatePercussionTrack(newBeat))
   }
 
@@ -203,8 +208,8 @@ beatIndex = 0;
           this.getInstrument(percussionOnNote);
                 this.beatIndex += 1;
       }
-      if (this.beatIndex === 15) {
-        this.beatIndex = -1;
+      if (this.beatIndex === 16) {
+        this.beatIndex = 0;
       }
     }
   }

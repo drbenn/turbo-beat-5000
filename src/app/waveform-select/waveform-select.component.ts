@@ -8,7 +8,7 @@ import { UpdateWaveform } from '../shared/state/appState.actions';
   styleUrls: ['./waveform-select.component.scss']
 })
 export class WaveformSelectComponent implements OnInit {
-  waveforms: string[] = ['SQR', 'SIN', 'SAW', 'TRI']
+  waveforms: string[] = ['SAW', 'SIN', 'SQR', 'TRI']
   waveBtnClass: string[] = ['wave-button-active', 'wave-button', 'wave-button','wave-button']
 
   constructor(private store: Store) { }

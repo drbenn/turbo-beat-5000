@@ -157,7 +157,7 @@ export class SynthPadComponent implements OnInit {
     osc.detune.value = detune
     osc.connect(actx.destination); // soundcard output
     osc.start();
-    osc.stop(actx.currentTime + 0.1); //2 seconds of play
+    osc.stop(actx.currentTime + 0.2); //2 seconds of play
     return osc;
 
   }
@@ -183,8 +183,6 @@ export class SynthPadComponent implements OnInit {
   }
 
   getMouseCoordinates(event) {
-    console.log(event);
-
     this.mouseX = event.clientX;
     this.mouseY = event.clientY;
     this.volumeFactor = (this.mouseX - this.synthBounds.left) / this.synthBounds.volumeRange

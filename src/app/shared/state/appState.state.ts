@@ -18,7 +18,7 @@ export interface AppStateModel {
     name: 'appState',
     defaults: {
       percussionPlaying: false,
-      selectedWaveform: 'SQR',
+      selectedWaveform: 'SAW',
       settings: {
         envelopeMeterGroup: {
             // attack, decay, sustain, release
