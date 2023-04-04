@@ -28,10 +28,27 @@ export class SynthPadComponent implements OnInit {
     console.log(event.key);
     const key: string = event.key;
     if (key === 'a') {
-      //
       this.frequency = 55.0;
-      this.playOscillators()
     }
+    if (key === 'b') {
+      this.frequency = 61.74;
+    }
+    if (key === 'c') {
+      this.frequency = 65.41;
+    }
+    if (key === 'd') {
+      this.frequency = 73.42;
+    }
+    if (key === 'e') {
+      this.frequency = 82.41;
+    }
+    if (key === 'f') {
+      this.frequency = 87.31;
+    }
+    if (key === 'g') {
+      this.frequency = 98.0;
+    }
+    this.playOscillators()
     this.isKeyPress = false;
   }
 
