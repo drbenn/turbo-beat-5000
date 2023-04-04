@@ -44,7 +44,7 @@
       <div class="settings-box" *ngIf="isBackdropOn" (click)="updateViewSettings('backdrop')">x</div>
       <div class="settings-box" *ngIf="!isBackdropOn" (click)="updateViewSettings('backdrop')"></div>
     </div>
-    <div class="settings-name">
+    <div class="settings-name" (click)="updateViewSettings('backdrop')">
       Backdrop
     </div>
   </div>
@@ -53,7 +53,7 @@
       <div class="settings-box" *ngIf="isParticlesOn" (click)="updateViewSettings('particles')">x</div>
       <div class="settings-box" *ngIf="!isParticlesOn" (click)="updateViewSettings('particles')"></div>
     </div>
-    <div class="settings-name">
+    <div class="settings-name" (click)="updateViewSettings('particles')">
       Moving Particles
     </div>
   </div>

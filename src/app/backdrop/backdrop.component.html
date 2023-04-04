@@ -1,12 +1,12 @@
-<div class="cool-artifact" *ngIf="visualSettings['backdrop']"></div>
+<div class="cool-artifact" *ngIf="visualSettings['backdrop']" [@inOutAnimation]></div>
 
 
 
-  <div class="bottom-grid-container" *ngIf="visualSettings.backdrop">
+  <div class="bottom-grid-container" *ngIf="visualSettings.backdrop" [@inOutAnimation]>
     <div class="grid-block" *ngFor="let item of [].constructor(1600)"></div>
   </div>
 
 
-  <div class="moving-parts-container" *ngIf="visualSettings.particles">
+  <div class="moving-parts-container" *ngIf="visualSettings.particles" [@inOutAnimation]>
     <div class="moving-block" *ngFor="let part of movingParts" [style]="part"></div>
   </div>

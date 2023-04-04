@@ -1,3 +1,4 @@
+import { style, transition, trigger, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { log } from 'console';
@@ -6,7 +7,30 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-backdrop',
   templateUrl: './backdrop.component.html',
-  styleUrls: ['./backdrop.component.scss']
+  styleUrls: ['./backdrop.component.scss'],
+  animations: [
+    trigger(
+      'inOutAnimation',
+      [
+        transition(
+          ':enter',
+          [
+            style({ opacity: 0 }),
+            animate('1400ms ease-out',
+                    style({ opacity: 1 }))
+          ]
+        ),
+        transition(
+          ':leave',
+          [
+            style({ opacity: 1 }),
+            animate('1400ms ease-in',
+                    style({ opacity: 0 }))
+          ]
+        )
+      ]
+    )
+  ]
 })
 export class BackdropComponent implements OnInit{
   visualSettings$: Observable<boolean> = this.store.select((state) => state.appState.visualSettings);
