@@ -20,6 +20,9 @@ export class SynthPadComponent implements OnInit {
     this.getSynthPadBounds();
   }
 
+  actx: any;
+  gainNode: any;
+  now: any;
   isCursorAnimated: boolean = false;
   top:any;
   left:any;
@@ -60,8 +63,8 @@ export class SynthPadComponent implements OnInit {
   unisonWidth:number = 10;
 
     // ADSR values between 0 & 1
-    ADSR = { attack: 1, decay: 1, sustain: 1, release: 0}
-    STAGE_MAX_TIME = 10;
+    ADSR = { attack: 0.1, decay: 0.1, sustain: 0.1, release: .1}
+    STAGE_MAX_TIME = 2; // seconds
 
     echo = {
       time: 0.2,
@@ -100,7 +103,9 @@ export class SynthPadComponent implements OnInit {
   // playOscillators(event) {
   playOscillators() {
     // console.log(event);
-
+    this.actx = new (AudioContext);
+    this.gainNode = this.actx.createGain()
+    this.gainNode.gain.cancelScheduledValues(0.1);
     // this.frequency = event.target?.value;
     let pitchLimits: number[] = [ 16.35, 1567.98]; // c0 up to g6
     this.frequency = pitchLimits[0] + ((pitchLimits[1] - pitchLimits[0]) * this.pitchFactor)
@@ -114,14 +119,13 @@ export class SynthPadComponent implements OnInit {
 
   createOscillator(freq: number, detune: number) {
 
-    const actx = new (AudioContext);
-    if (!actx) throw 'Not supported :(';
+
+    if (!this.actx) throw 'Not supported :(';
 
     //------------gainNode--------------
-    const gainNode = actx.createGain()
-    gainNode.gain.cancelScheduledValues(0);
 
-    const osc = actx.createOscillator();
+
+    const osc = this.actx.createOscillator();
 
     // if (this.isDelay) {
     //   osc.connect(actx.destination);
@@ -139,25 +143,25 @@ export class SynthPadComponent implements OnInit {
     // }
 
 
-    // osc.connect(gainNode)
+    osc.connect( this.gainNode)
 
     // ATTACK -> DECAY -> SUSTAIN
-    const now = actx.currentTime;
+    this.now = this.actx.currentTime;
     const attackDuration = this.ADSR.attack + this.STAGE_MAX_TIME;
-    const attackEndTime = now + attackDuration;
+    const attackEndTime =  this.now + attackDuration;
     const decayDuration = this.ADSR.decay * this.STAGE_MAX_TIME;
 
-    gainNode.gain.setValueAtTime(0, actx.currentTime);
-    gainNode.gain.linearRampToValueAtTime(1, attackEndTime);
-    gainNode.gain.setTargetAtTime(this.ADSR.sustain, attackEndTime, decayDuration);
+    this.gainNode.gain.setValueAtTime(0, this.actx.currentTime);
+    this.gainNode.gain.linearRampToValueAtTime(1, attackEndTime);
+    this.gainNode.gain.setTargetAtTime(this.ADSR.sustain, attackEndTime, decayDuration);
 
     // osc.type = 'sawtooth'; //  sine | square | sawtooth | triangle
     osc.type = this.waveformSelected;
     osc.frequency.value = this.frequency; // Hz = middle A
     osc.detune.value = detune
-    osc.connect(actx.destination); // soundcard output
+    osc.connect(this.actx.destination); // soundcard output
     osc.start();
-    osc.stop(actx.currentTime + 0.2); //2 seconds of play
+    osc.stop(this.actx.currentTime + 0.5); //2 seconds of play
     return osc;
 
   }
@@ -168,6 +172,12 @@ export class SynthPadComponent implements OnInit {
 
   deactivateSynth() {
     this.isSynthPlaying = false;
+    this.gainNode.gain.cancelScheduledValues(0.1);
+    this.now = this.actx.currentTime(0);
+    const relDuration = this.ADSR.release * this.STAGE_MAX_TIME;
+    const relEndTime = this.now + relDuration;
+    this.gainNode.gain.setValueAtTime(this.gainNode.gain.value, this.now);
+    // asdrNode.gain.linearRampToValueAtTime(0, relEndTime); // ???????????????????
   }
 
   getSynthPadBounds() {
