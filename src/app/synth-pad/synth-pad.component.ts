@@ -14,10 +14,25 @@ import { log } from 'console';
 // https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
 export class SynthPadComponent implements OnInit {
   @Select(state => state.appState.selectedWaveform) waveform$:Observable<string>;
+  isKeyPress:boolean = false;
   // waveform$: Observable<string> = this.store.select((state) => state.appState.waveform)
   @ViewChild('synthDiv', { static: true }) synthElement?: ElementRef;
   @HostListener('window:resize') onResize() {
     this.getSynthPadBounds();
+  }
+
+  //https://pages.mtu.edu/~suits/notefreqs.html
+  @HostListener('window:keydown', ['$event'])
+    keyEvent(event: KeyboardEvent) {
+      this.isKeyPress = true;
+    console.log(event.key);
+    const key: string = event.key;
+    if (key === 'a') {
+      //
+      this.frequency = 55.0;
+      this.playOscillators()
+    }
+    this.isKeyPress = false;
   }
 
   actx: any;
@@ -108,7 +123,10 @@ export class SynthPadComponent implements OnInit {
     this.gainNode.gain.cancelScheduledValues(0.1);
     // this.frequency = event.target?.value;
     let pitchLimits: number[] = [ 16.35, 1567.98]; // c0 up to g6
-    this.frequency = pitchLimits[0] + ((pitchLimits[1] - pitchLimits[0]) * this.pitchFactor)
+    if (!this.isKeyPress) {
+      this.frequency = pitchLimits[0] + ((pitchLimits[1] - pitchLimits    [0]) * this.pitchFactor)
+    }
+
     // console.log(this.frequency);
 
     this.oscBank[0] = this.createOscillator(this.frequency, 0);
