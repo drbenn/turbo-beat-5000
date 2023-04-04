@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { log } from 'console';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-backdrop',
@@ -6,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./backdrop.component.scss']
 })
 export class BackdropComponent implements OnInit{
+  visualSettings$: Observable<boolean> = this.store.select((state) => state.appState.visualSettings);
+  visualSettings:any;
   // movingParts = [{class:'background-color': 'hotpink'}]
   // movingParts: any = [
   //   {'font-family': 'Georgia', 'font-size': '2rem', 'background-color': 'lime', 'color': 'blue', 'padding': '1rem'},
@@ -21,9 +26,14 @@ export class BackdropComponent implements OnInit{
 
   ]
 
-
+  constructor(private store:Store) {}
 
   ngOnInit(): void {
+        this.visualSettings$.subscribe((settings: any) => {
+            this.visualSettings = settings;
+            console.log(this.visualSettings);
+
+    })
     for (let i = 0; i < 200; i++) {
       const size = String(0.1 + (Math.round(Math.random() -0.2) * 0.4))
       const top = String(Math.round(Math.random() * 100))

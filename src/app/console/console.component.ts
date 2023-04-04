@@ -18,6 +18,8 @@ export class ConsoleComponent implements OnInit {
   visualsThree: string[] = [];
   visualsFour: string[] = [];
   visualsFive: string[] = [];
+  visualsSix: string[] = [];
+  visualsSeven: string[] = [];
 
   ngOnInit(): void {
     this.beatPlaying$.subscribe((beat) => {
@@ -30,6 +32,8 @@ export class ConsoleComponent implements OnInit {
     this.getRandomColorArray('visualsThree')
     this.getRandomColorArray('visualsFour')
     this.getRandomColorArray('visualsFive')
+    this.getRandomColorArray('visualsSix')
+    this.getRandomColorArray('visualsSeven')
 
       if (typeof window !== 'undefined'){
         window.setInterval(() => this.click(), 1);

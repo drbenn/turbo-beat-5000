@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext, Store } from "@ngxs/store";
-import { PercussionPlaying, UpdatePercussionTrack, UpdateSynthSetting, UpdateWaveform } from "./appState.actions";
+import { PercussionPlaying, UpdatePercussionTrack, UpdateSynthSetting, UpdateVisualSetting, UpdateWaveform } from "./appState.actions";
 import { log } from 'console';
 
 export interface AppStateModel {
@@ -8,6 +8,10 @@ export interface AppStateModel {
     selectedWaveform: string,
     settings: any;
     percussionTrack: any;
+    visualSettings: {
+      backdrop: boolean,
+      particles: boolean,
+    };
   }
 
   @State<AppStateModel>({
@@ -51,7 +55,12 @@ export interface AppStateModel {
           false, false, false, false,
           true, false, false, false ]
       },
-    },
+
+      visualSettings: {
+        backdrop: false,
+        particles: false,
+      }
+    }
   })
   @Injectable()
   export class AppState {
@@ -104,6 +113,17 @@ export interface AppStateModel {
       payload: { newBeat: any }
     ) {
       ctx.patchState({ percussionTrack: payload.newBeat});
+    }
+
+
+    @Action(UpdateVisualSetting)
+    updateVisualSetting(
+      ctx: StateContext<AppStateModel>,
+      payload: { setting: any }
+    ) {
+      console.log(payload.setting);
+
+      ctx.patchState({ visualSettings: payload.setting});
     }
 
   }

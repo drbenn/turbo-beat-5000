@@ -30,4 +30,31 @@
 
 </div> -->
 
+<div class="view-settings-button" (click)="toggleViewSettings()">
+  <img src="../../assets/image/icons8-gear-100.png">
+</div>
 
+
+<div class="settings-container" *ngIf="settingsOpen" [@inOutAnimation]>
+  <div class="settings-option">
+    <div class="visuals-title">Slow beats? turn off visuals</div>
+  </div>
+  <div class="settings-option">
+    <div class="settings-boxes">
+      <div class="settings-box" *ngIf="isBackdropOn" (click)="updateViewSettings('backdrop')">x</div>
+      <div class="settings-box" *ngIf="!isBackdropOn" (click)="updateViewSettings('backdrop')"></div>
+    </div>
+    <div class="settings-name">
+      Backdrop
+    </div>
+  </div>
+  <div class="settings-option">
+    <div class="settings-boxes">
+      <div class="settings-box" *ngIf="isParticlesOn" (click)="updateViewSettings('particles')">x</div>
+      <div class="settings-box" *ngIf="!isParticlesOn" (click)="updateViewSettings('particles')"></div>
+    </div>
+    <div class="settings-name">
+      Moving Particles
+    </div>
+  </div>
+</div>

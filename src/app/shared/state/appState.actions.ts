@@ -18,3 +18,8 @@ export class UpdateWaveform {
   static readonly type = '[SYNTH] update waveform';
   constructor(public waveform: string) {}
 }
+
+export class UpdateVisualSetting {
+  static readonly type = '[BACKDROP] update visual setting';
+  constructor(public setting: any) {}
+}

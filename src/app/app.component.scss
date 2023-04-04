@@ -42,3 +42,110 @@
   background: #04AA6D;
   cursor: pointer;
 }
+
+
+.view-settings-button {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.2rem;
+  background: linear-gradient(168deg, #2bfff4 0%, #a67be0 50%, #6624c0 100%);
+  border-radius: 20rem;
+  margin-right: 0.5rem;
+  position: absolute;
+  z-index: 10000;
+
+  top: 1%;
+  right: 1%;
+  transition: 400ms;
+
+  box-shadow: 0px 0px 6px #ff69ffed;
+
+  img {
+    width: 100%;
+    // transform: translate(0, 0.1rem);
+  }
+}
+
+.view-settings-button:hover {
+  filter: brightness(110%) saturate(2.0);
+  transition: 400ms;
+}
+
+.settings-container {
+  width: 10rem;
+  height: fit-content;
+  padding: 0.6rem;
+  // background: linear-gradient(168deg, #e7fffe 0%, #c87be0 50%, #d4b5ff 100%);
+  background: radial-gradient(ellipse at bottom, #e7fffe 0%, #f8b3f8 100%);
+  background-color: red;
+  border-radius: 1px;
+  position: absolute;
+  z-index: 10001;
+
+  top: 3.5%;
+  right: 3.5%;
+
+  box-shadow: 0px 0px 4px #950a95ed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.visuals-title {
+  color: #4f334a;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.442);
+}
+
+.settings-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  cursor: default;
+}
+
+.settings-boxes {
+  height: 0.8rem;
+  width: 0.8rem;
+  border: 2px solid #7030a1;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  margin-right: .5rem;
+  margin-top: 0.5rem;
+  padding-left: 0.2rem;
+}
+
+.settings-box {
+  height: 100%;
+  width: 100%;
+
+  color: #ef0eff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding-left: 0.2rem;
+  transform: translate(-0.2rem, 0rem);
+  line-height: 0.7rem;
+  transition: 100ms ease-in;
+}
+
+.settings-box:hover {
+  background-color: #fe81a6;
+  transition: 100ms ease-in;
+}
+
+.settings-name {
+  color: #640e58;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.442);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
