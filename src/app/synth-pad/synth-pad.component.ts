@@ -25,32 +25,42 @@ export class SynthPadComponent implements OnInit {
   @HostListener('window:keydown', ['$event'])
     keyEvent(event: KeyboardEvent) {
       this.isKeyPress = true;
-    console.log(event.key);
     const key: string = event.key;
+    if (key === 'g') {
+      this.frequency = 49.0;
+      this.playOscillators();
+    }
     if (key === 'a') {
       this.frequency = 55.0;
+      this.playOscillators();
     }
     if (key === 'b') {
       this.frequency = 61.74;
+      this.playOscillators();
     }
     if (key === 'c') {
-      this.frequency = 65.41;
+      this.frequency = 66.41;
+      this.playOscillators();
     }
     if (key === 'd') {
       this.frequency = 73.42;
+      this.playOscillators();
     }
     if (key === 'e') {
       this.frequency = 82.41;
+      this.playOscillators();
     }
     if (key === 'f') {
       this.frequency = 87.31;
+      this.playOscillators();
     }
-    if (key === 'g') {
-      this.frequency = 98.0;
+    if (key === 'h') {
+      this.frequency = 98.00;
+      this.playOscillators();
     }
-    this.playOscillators()
     this.isKeyPress = false;
   }
+
 
   actx: any;
   gainNode: any;

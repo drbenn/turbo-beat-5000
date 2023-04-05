@@ -63,7 +63,7 @@ export class PercussionTrackComponent implements OnInit {
   ngOnInit(): void {
     this.percussionTrack$.subscribe((track: any) => {
       this.percussionTrack = track;
-      console.log(track);
+      // console.log(track);
 
     })
     this.timeOsc = this.timeAudioContext.createOscillator();

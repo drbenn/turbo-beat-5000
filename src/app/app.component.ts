@@ -44,7 +44,6 @@ export class AppComponent implements OnInit {
 
   protected toggleViewSettings() {
     this.settingsOpen = !this.settingsOpen
-    console.log(this.settingsOpen);
  }
 
   protected updateViewSettings(setting: string) {
