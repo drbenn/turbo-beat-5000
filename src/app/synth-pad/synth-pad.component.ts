@@ -13,7 +13,8 @@ import { log } from 'console';
 // https://www.youtube.com/watch?v=uasGsHf7UYA&t=371s
 // https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
 export class SynthPadComponent implements OnInit {
-  @Select(state => state.appState.selectedWaveform) waveform$:Observable<string>;
+  @Select(state => state.appState.selectedWaveform) waveform$: Observable<string>;
+  @Select(state => state.appState.settings) settings$: Observable<any>;
   isKeyPress:boolean = false;
   // waveform$: Observable<string> = this.store.select((state) => state.appState.waveform)
   @ViewChild('synthDiv', { static: true }) synthElement?: ElementRef;
@@ -26,38 +27,42 @@ export class SynthPadComponent implements OnInit {
     keyEvent(event: KeyboardEvent) {
       this.isKeyPress = true;
     const key: string = event.key;
-    if (key === 'g') {
-      this.frequency = 49.0;
-      this.playOscillators();
-    }
-    if (key === 'a') {
-      this.frequency = 55.0;
-      this.playOscillators();
-    }
-    if (key === 'b') {
-      this.frequency = 61.74;
-      this.playOscillators();
-    }
-    if (key === 'c') {
-      this.frequency = 66.41;
-      this.playOscillators();
-    }
-    if (key === 'd') {
-      this.frequency = 73.42;
-      this.playOscillators();
-    }
-    if (key === 'e') {
-      this.frequency = 82.41;
-      this.playOscillators();
-    }
-    if (key === 'f') {
-      this.frequency = 87.31;
-      this.playOscillators();
-    }
-    if (key === 'h') {
-      this.frequency = 98.00;
-      this.playOscillators();
-    }
+    // G1 -> G2
+    if (key === '1') {this.frequency = 49.00; this.playOscillators();}
+    if (key === '2') {this.frequency = 55.00; this.playOscillators();}
+    if (key === '3') {this.frequency = 61.74; this.playOscillators();}
+    if (key === '4') {this.frequency = 66.41; this.playOscillators();}
+    if (key === '5') {this.frequency = 73.42; this.playOscillators();}
+    if (key === '6') {this.frequency = 82.41; this.playOscillators();}
+    if (key === '7') {this.frequency = 87.31; this.playOscillators();}
+    if (key === '8') {this.frequency = 98.00; this.playOscillators();}
+    // G2 -> G3
+    if (key === 'q') {this.frequency = 98.00; this.playOscillators();}
+    if (key === 'w') {this.frequency = 110.00; this.playOscillators();}
+    if (key === 'e') {this.frequency = 123.47; this.playOscillators();}
+    if (key === 'r') {this.frequency = 130.81; this.playOscillators();}
+    if (key === 't') {this.frequency = 146.83; this.playOscillators();}
+    if (key === 'y') {this.frequency = 164.81; this.playOscillators();}
+    if (key === 'u') {this.frequency = 174.61; this.playOscillators();}
+    if (key === 'i') {this.frequency = 196.00; this.playOscillators();}
+    // G3 -> G4
+    if (key === 'a') {this.frequency = 196.00; this.playOscillators();}
+    if (key === 's') {this.frequency = 220.00; this.playOscillators();}
+    if (key === 'd') {this.frequency = 246.94; this.playOscillators();}
+    if (key === 'f') {this.frequency = 261.63; this.playOscillators();}
+    if (key === 'g') {this.frequency = 293.66; this.playOscillators();}
+    if (key === 'h') {this.frequency = 329.63; this.playOscillators();}
+    if (key === 'j') {this.frequency = 349.23; this.playOscillators();}
+    if (key === 'k') {this.frequency = 392.00; this.playOscillators();}
+    // G4 -> G5
+    if (key === 'z') {this.frequency = 392.00; this.playOscillators();}
+    if (key === 'x') {this.frequency = 440.00; this.playOscillators();}
+    if (key === 'c') {this.frequency = 493.88; this.playOscillators();}
+    if (key === 'v') {this.frequency = 523.25; this.playOscillators();}
+    if (key === 'b') {this.frequency = 587.33; this.playOscillators();}
+    if (key === 'n') {this.frequency = 659.25; this.playOscillators();}
+    if (key === 'm') {this.frequency = 698.46; this.playOscillators();}
+    if (key === ',') {this.frequency = 783.99; this.playOscillators();}
     this.isKeyPress = false;
   }
 
@@ -121,8 +126,17 @@ export class SynthPadComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.settings$.subscribe((settings) => {
+      console.log(settings);
+
+
+
+    })
+
     this.getSynthPadBounds();
     this.waveform$.subscribe((wave) => {
+      console.log(wave);
+
       switch(wave) {
         case 'SIN':
           this.waveformSelected = 'sine'
@@ -140,6 +154,9 @@ export class SynthPadComponent implements OnInit {
           break;
       }
     })
+
+
+
   }
 
   // playOscillators(event) {
@@ -216,13 +233,16 @@ export class SynthPadComponent implements OnInit {
   }
 
   deactivateSynth() {
-    this.isSynthPlaying = false;
-    this.gainNode.gain.cancelScheduledValues(0.1);
-    this.now = this.actx.currentTime(0);
-    const relDuration = this.ADSR.release * this.STAGE_MAX_TIME;
-    const relEndTime = this.now + relDuration;
-    this.gainNode.gain.setValueAtTime(this.gainNode.gain.value, this.now);
-    // asdrNode.gain.linearRampToValueAtTime(0, relEndTime); // ???????????????????
+    if (this.isSynthPlaying) {
+      this.isSynthPlaying = false;
+      // this.gainNode.gain.cancelScheduledValues(0.1);
+      // this.now = this.actx.currentTime(0);
+      const relDuration = this.ADSR.release * this.STAGE_MAX_TIME;
+      const relEndTime = this.now + relDuration;
+      this.gainNode.gain.setValueAtTime(this.gainNode.gain.value, this.now);
+      // asdrNode.gain.linearRampToValueAtTime(0, relEndTime); // ???????????????????
+    }
+
   }
 
   getSynthPadBounds() {

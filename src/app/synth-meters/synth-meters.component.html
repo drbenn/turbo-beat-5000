@@ -1,9 +1,9 @@
 <!-- <p>synth-meters works!</p> -->
 
 
-<div class="meter-group-container" *ngIf="meterSettings.envelopeMeterGroup.ATK !== undefined">
+<div class="meter-group-container" *ngIf="defaultMeterSettings.envelopeMeterGroup.ATK !== undefined">
   <div class="meter-container"
-    *ngFor="let item of meterSettings.envelopeMeterGroup | keyvalue">
+    *ngFor="let item of defaultMeterSettings.envelopeMeterGroup | keyvalue">
 
       <input type="range" min="0" max="100" value="item.value" class="meter-slider"
         (input)="meterChange($event, item.key, 'envelope')">
@@ -13,9 +13,9 @@
   </div>
 </div>
 
-<div class="meter-group-container" *ngIf="meterSettings.echoMeterGroup.TIM !== undefined">
+<div class="meter-group-container" *ngIf="defaultMeterSettings.echoMeterGroup.TIM !== undefined">
   <div class="meter-container"
-    *ngFor="let item of meterSettings.echoMeterGroup | keyvalue">
+    *ngFor="let item of defaultMeterSettings.echoMeterGroup | keyvalue">
 
       <input type="range" min="0" max="100" value="item.value" class="meter-slider"
         (input)="meterChange($event, item.key, 'echo')">

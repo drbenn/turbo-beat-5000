@@ -1,3 +1,18 @@
+# Angular to namecheap
+1. index.html base href =     <base href="./">
+2. make sure all img, snd, vid references to assets folder use './assets/....'
+    not '../../../../assets' or whatever
+3. ng build
+4. zip into 1 file contents of dist/charging-stations so index.html will be in root
+5. in namecheap c-panel, public html folder
+      - create 'charging-stations' folder
+      - upload zipped file into 'charged-stations' folder
+      - unzip within folder
+      - site should be up and running within a minute
+
+
+
+
 # TurboBeat5000
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.

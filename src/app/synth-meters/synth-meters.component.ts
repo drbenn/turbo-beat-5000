@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { UpdateSynthSetting } from '../shared/state/appState.actions';
+import { log } from 'console';
 
 @Component({
   selector: 'app-synth-meters',
@@ -10,7 +11,20 @@ import { UpdateSynthSetting } from '../shared/state/appState.actions';
 })
 export class SynthMetersComponent implements OnInit {
   meterSettings$: Observable<boolean> = this.store.select((state) => state.appState.settings);
-  meterSettings = {
+  defaultMeterSettings = {
+    envelopeMeterGroup: {
+        ATK: 50,
+        DEC: 50,
+        SUS: 50,
+        REL: 50,
+      },
+      echoMeterGroup: {
+        TIM: 50,
+        FDB: 50,
+        DUR: 50,
+      }
+  };
+  liveMeterSettings = {
     envelopeMeterGroup: {
         ATK: 50,
         DEC: 50,
@@ -39,6 +53,12 @@ export class SynthMetersComponent implements OnInit {
 
   meterChange(e:any, name: any, group: string) {
     let value = 100 - e.target.value // flip counting due to slider orientation
-    this.store.dispatch(new UpdateSynthSetting({settingName: name, settingValue: value, groupName: group}))
+    if (group === 'envelope') {
+      this.liveMeterSettings.envelopeMeterGroup[name] = value;
+    }
+    if (group === 'echo') {
+      this.liveMeterSettings.echoMeterGroup[name] = value;
+    }
+    this.store.dispatch(new UpdateSynthSetting(this.liveMeterSettings))
   }
 }

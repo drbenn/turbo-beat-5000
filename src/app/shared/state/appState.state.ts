@@ -76,19 +76,21 @@ export interface AppStateModel {
       ctx: StateContext<AppStateModel>,
       payload: { setting: any }
     ) {
-      const value:number = payload.setting.settingValue;
-      const group = payload.setting.groupName
-      const settingName: string = String(payload.setting.settingName);
-      let newSettings = ctx.getState().settings;
+      // const value:number = payload.setting.settingValue;
+      // const group = payload.setting.groupName
+      // const settingName: string = String(payload.setting.settingName);
+      // let newSettings = ctx.getState().settings;
 
-      if (group === 'envelope') {
-        newSettings.envelopeMeterGroup[settingName] = value;
-      }
+      // if (group === 'envelope') {
+      //   newSettings.envelopeMeterGroup[settingName] = value;
+      // }
 
-      if (group === 'echo') {
-        newSettings.echoMeterGroup[settingName] = value;
-      }
-      ctx.patchState({ settings: newSettings });
+      // if (group === 'echo') {
+      //   newSettings.echoMeterGroup[settingName] = value;
+      // }
+      // console.log(payload.setting);
+
+      ctx.patchState({ settings: payload.setting });
     }
 
     @Action(PercussionPlaying)
